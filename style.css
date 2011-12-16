@@ -16,10 +16,18 @@ h1, h2, h3, h4 {
   font-weight: normal;
 }
 
+h3 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
 a {
   text-decoration: none;
   color: #ec7600;
   border-bottom: 1px solid #ec7600;  
+}
+
+a.em {
 }
 
 h1 {
@@ -53,9 +61,14 @@ h1 a {
   margin-top: 50px;
 }
 
+#header h4 span {
+  font-style: italic;
+}
+
 #content {
   border-top: 1px solid #eee;
-  padding-top: 30px;
+  border-bottom: 1px solid #eee;
+  padding: 50px 0 50px 0;
 }
 
 #content {
