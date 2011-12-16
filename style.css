@@ -49,10 +49,12 @@ a {
 
 #content {
   width: 700px;
+  border-top: 1px solid #eee;
+  padding-top: 30px;
 }
 
 #content {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 #content p {
