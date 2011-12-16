@@ -23,9 +23,15 @@ switch(args[2]) {
   Quickly thrown together :P
  */
 
+var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+function buildDate(dateObject){
+  return dateObject.getDate()+' '+months[dateObject.getMonth()]+' '+dateObject.getFullYear();
+};
+
 function processPost(filename, data){
   // DATE FORMAT: 15 Dec 2011
-  var date = filename;
+  var date = buildDate(new Date(filename.replace(/\.md/,'')));
   var title = data.match(/^(.*)$/mgi)[0].replace(/# /i,'');
   var html = '<p>'+date+' &raquo; <a href="" title="" class="title">'+title+'</a></p>';
   var source = fs.readFileSync(__dirname+'/../layout/index.html').toString();
