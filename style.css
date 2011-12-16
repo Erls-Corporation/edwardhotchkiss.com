@@ -18,7 +18,8 @@ h1, h2, h3, h4 {
 
 a {
   text-decoration: none;
-  border-bottom: 1px solid #000;  
+  color: #ec7600;
+  border-bottom: 1px solid #ec7600;  
 }
 
 h1 {
@@ -26,11 +27,18 @@ h1 {
 }
 
 h1 a {
+  color: #333;
   border: none;
 }
 
-a {
-  color: #000;
+#github {
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+}
+
+#github a {
+  border: none;
 }
 
 #container {
@@ -61,13 +69,13 @@ a {
 }
 
 a.title {
-  background: #000;
+  background: #ec7600;
   color: #fff;
   padding: 2px 5px 2px 5px;  
 }
 
 a.title:hover {
-  background: #555;
+  background: #000;
 }
 
 /* EOF */
