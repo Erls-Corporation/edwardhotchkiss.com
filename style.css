@@ -34,13 +34,11 @@ a {
 }
 
 #container {
-  width: 700px;
+  width: 600px;
   margin: 0 auto 0 auto;
 }
 
 #header {
-  margin-left: 60px;
-  width: 640px;
 }
 
 #header h4 {
@@ -48,7 +46,6 @@ a {
 }
 
 #content {
-  width: 700px;
   border-top: 1px solid #eee;
   padding-top: 30px;
 }
