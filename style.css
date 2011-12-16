@@ -6,7 +6,7 @@
 
 body {
   margin: 80px;
-  font-family: 'georgia';
+  font-family: 'Georgia';
   font-size: 18px;
   line-height: 26px;
   color: #111;
@@ -39,10 +39,16 @@ a {
 }
 
 #header {
+  margin-left: 60px;
+  width: 640px;
 }
 
 #header h4 {
   margin-top: 50px;
+}
+
+#content {
+  width: 700px;
 }
 
 #content {
