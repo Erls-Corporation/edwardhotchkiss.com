@@ -26,7 +26,7 @@ switch(args[2]) {
 function processPost(filename, data){
   // DATE FORMAT: 15 Dec 2011
   var date = filename;
-  var title = 'tmp';
+  var title = data.match(/^(.*)$/mgi)[0].replace(/# /i,'');
   var html = '<p>'+date+' &raquo; <a href="" title="" class="title">'+title+'</a></p>';
   var source = fs.readFileSync(__dirname+'/../layout/index.html').toString();
   var redux = source.replace(/{{posts}}/gi, html);
