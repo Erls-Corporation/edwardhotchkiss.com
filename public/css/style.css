@@ -61,4 +61,12 @@ p {
   text-shadow: #fff 0 1px 1px;
 }
 
+#contact-btn {
+  margin-top: 30px;
+  background-color: #ff0000;
+  box-shadow: 0 0 8px #fff;
+  padding: 5px 10px 5px 10px;
+  width: 200px;
+}
+
 /* EOF */
