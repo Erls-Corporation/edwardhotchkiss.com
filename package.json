@@ -1,12 +1,13 @@
 {
   "author": "Edward Hotchkiss <edward@edwardhotchkiss.com>",
   "name": "edward",
-  "version": "0.0.1-1",
+  "version": "0.0.1-2",
   "engines": {
     "node": ">= 0.4.11"
   },
   "dependencies": {
-    "express": "2.5.2"
+    "express": "2.5.2",
+    "jade":"0.20.0"
   },
   "scripts": {
     "start": "app.js"
