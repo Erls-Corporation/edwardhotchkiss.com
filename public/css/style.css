@@ -36,6 +36,48 @@ p {
   line-height: 18px;
 }
 
+/* inputs(s) */
+
+input {
+  font-family: 'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
+  font-size: 11px;
+}
+
+input#contact-btn {
+  margin-top: 30px;
+  background-color: #ff0000;
+  box-shadow: 0 0 8px #fff;
+  padding: 7px 8px 7px 8px;
+  width: 150px;
+}
+
+input[type=button], input[type=submit] {
+  -moz-box-shadow: inset 1px 1px 0 rgba(255,255,255,0.3);
+  -webkit-box-shadow: inset 1px 1px 0 rgba(255,255,255,0.3);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.3);
+  cursor: pointer;
+  font-weight: bold;
+  padding: 6px 16px;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  /* blue */
+  background: #0095cd;
+  background: -webkit-gradient(linear,left top,left bottom,from(#00adee),to(#0078a5));
+  background: -moz-linear-gradient(top,#00adee,#0078a5);
+  -pie-background: linear-gradient(top,#00adee,#0078a5);
+  border: none;
+  color: #fff;
+  text-shadow: 0 1px 1px #000;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=button]:focus, input[type=submit]:focus {
+  background:#007ead;
+  background:-webkit-gradient(linear,left top,left bottom,from(#0095cc),to(#00678e));
+  background:-moz-linear-gradient(top,#0095cc,#00678e);
+  -pie-background:linear-gradient(top,#0095cc,#00678e);
+}
+
 #container {
   width: 800px;
   position: absolute;
@@ -59,14 +101,6 @@ p {
 #container li a {
   color: #787878;
   text-shadow: #fff 0 1px 1px;
-}
-
-#contact-btn {
-  margin-top: 30px;
-  background-color: #ff0000;
-  box-shadow: 0 0 8px #fff;
-  padding: 5px 10px 5px 10px;
-  width: 200px;
 }
 
 /* EOF */
