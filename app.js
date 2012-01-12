@@ -6,7 +6,18 @@
 */
 
 var express = require('express')
+  , mongoose = require('mongoose')
   , app = express.createServer();
+
+/*!
+  connect to mongo
+ */
+
+mongoose.connect(process.env.MONGO_DB);
+
+mongoose.connection.on('error', function(error) {
+  throw new Error(error);  
+});
 
 /*!
   Setup ExpressJS
@@ -19,7 +30,7 @@ app.configure(function() {
 });
 
 /*!
-	routes
+  routes
  */
 
 require('./controllers/index')(app);

@@ -1,7 +1,7 @@
 {
   "author": "Edward Hotchkiss <edward@edwardhotchkiss.com>",
   "name": "edward",
-  "version": "0.0.1-12",
+  "version": "0.0.1-14",
   "engines": {
     "node": ">= 0.4.11"
   },
@@ -9,7 +9,8 @@
     "express": "2.5.2",
     "jade": "0.20.0",
     "mongoose": "2.4.10",
-    "formidable": "1.0.x"
+    "formidable": "1.0.x",
+    "knox": "0.0.9"
   },
   "scripts": {
     "start": "app.js"
