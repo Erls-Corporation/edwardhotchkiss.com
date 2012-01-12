@@ -36,12 +36,7 @@ var client = knox.createClient({
 module.exports = function(app) {
   
   app.get('/cloud', function(request, response) {
-    response.send(
-      '<form action="/upload" enctype="multipart/form-data" method="post">'+
-      '<input type="file" name="upload" multiple="multiple"><br>'+
-      '<input type="submit" value="Upload">'+
-      '</form>'
-    );
+    response.render('upload');
   });
 
   app.post('/upload', function(request, response) {
@@ -62,7 +57,7 @@ module.exports = function(app) {
     }).on('file', function(field, file) {
       files.push([field, file]);
     }).on('end', function() {
-      fs.readFile(process.cwd() + '/tmp/' + hash, function(error, buf) {
+      fs.readFile(__dirname + '/../tmp/' + hash, function(error, buf) {
         var req = client.put('/images/' + hash + '.png', {
           'x-amz-acl': 'private',
           'Content-Length': buf.length,
@@ -93,7 +88,6 @@ module.exports = function(app) {
         console.error(error);
       } else {
         client.get('/images/' + request.params.hash + '.png').on('response', function(_response){
-          console.log(res.headers);
           if (_response.statusCode === 200) {
             util.pump(_response, response);
           } else {
