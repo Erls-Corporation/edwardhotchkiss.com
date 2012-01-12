@@ -6,8 +6,7 @@
 */
 
 var express = require('express')
-  , app = express.createServer()
-  , hits = 0;
+  , app = express.createServer();
 
 /*!
   Setup ExpressJS
@@ -22,21 +21,9 @@ app.configure(function() {
 /*!
 	routes
  */
-  
-app.get('/', function(request, response) {
-  hits++;
-  process.emit('hit', hits);
-  response.render('index');  
-});
 
-app.get('/test', function(request, response) {  
-  response.writeHead(200, {
-    'Content-Type': 'text/plain'
-  });
-  process.on('hit', function(data) {
-    response.write(data + '\n');
-  });
-});
+require('./controllers/index')(app);
+require('./controllers/donttazemebro')(app);
 
 /*!
   ExpressJS, Listen on <port>

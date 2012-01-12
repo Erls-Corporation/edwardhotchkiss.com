@@ -103,4 +103,17 @@ input[type=button]:hover, input[type=submit]:hover, input[type=button]:focus, in
   text-shadow: #fff 0 1px 1px;
 }
 
+/* donttazemebro */
+
+#donttazemebro {
+  width: 600px;
+  position: relative;
+  margin: 0 auto 0 auto;
+  margin-top: 200px;
+}
+
+#donttazemebro p {
+  text-align: center;
+}
+
 /* EOF */

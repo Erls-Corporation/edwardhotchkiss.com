@@ -1,20 +1,22 @@
 {
   "author": "Edward Hotchkiss <edward@edwardhotchkiss.com>",
   "name": "edward",
-  "version": "0.0.1-7",
+  "version": "0.0.1-12",
   "engines": {
     "node": ">= 0.4.11"
   },
   "dependencies": {
     "express": "2.5.2",
     "jade": "0.20.0",
-    "mongoose":"2.4.10"
+    "mongoose": "2.4.10",
+    "formidable": "1.0.x"
   },
   "scripts": {
     "start": "app.js"
   },
   "subdomain": "edward",
   "domains": [
-    "edwardhotchkiss.com"
+    "edwardhotchkiss.com",
+    "donttazemebro.edwardhotchkiss.com"
   ]
 }
