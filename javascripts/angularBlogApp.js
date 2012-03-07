@@ -22,7 +22,11 @@ RoutingController.$inject = ['$route'];
 
 function RoutingController($route) {
   $route.when('/blog/', {
-    template: '/partials/blog.html',
+    template: 'partials/blog.html',
+    controller: BlogController
+  });
+  $route.when('/blog/on-blogging/', {
+    template: 'partials/blog.html',
     controller: BlogController
   });
   $route.otherwise({ 
