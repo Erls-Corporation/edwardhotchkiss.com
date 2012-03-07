@@ -74,6 +74,10 @@ p {
   width: 700px;
 }
 
+span.strong {
+  font-weight: bold;
+}
+
 .post-meta {
   clear: both;
   width: 180px;
