@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" lang="en" ng:app="angularBlogApp">
 <head>
   <title>Edward Hotchkiss, Developer</title>
   <meta name="title" content="Edward Hotchkiss, Developer" />
@@ -22,20 +22,11 @@
       <div style="clear:both" />
     </ul> 
   </div>
-  <div class="container">      
-    <div class="post">      
-      <div class="post-meta">
-        <p>March 6th, 2012</p>            
-      </div>  
-      <div class="post-content">
-        <h4><a href="/" title="">On Blogging.</a></h4>
-        <p>When I was a much younger developer, I wondered quite actively why the older developers around me were not embracing blogging (or at the time --  as it were called "online journals"). I wrote, and often felt that wiser, older tech stars had much more to say than myself. So I stopped writing.</p>
-        <p>Flash-forward to being 30 years old now, and I think of a quote:</p>
-        <blockquote>"The silence depressed me.  It wasn't the silence of silence.  It was my own silence."<br />-- Sylvia Plath, "The Bell Jar"</blockquote>
-        <p>More and more often I meet younger developers that have questions, with a yearn for truly satisfying knowledge. I may now speak.</p>
-      </div> 
-    </div>    
+  <div ng:controller="RoutingController">
+    <ng:view></ng:view>
   </div>
+  <script src="javascripts/vendor/angular-0.10.6.min.js" ng:autobind></script>
+  <script src="javascripts/angularBlogApp.js"></script>
   <script type="text/javascript">var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-28085919-3']);
     _gaq.push(['_trackPageview']);
