@@ -3,9 +3,33 @@
  * @module AngularBlog
  */
 
+/*!
+ * BlogService
+ */
+
+function BlogService($http) {
+  var _BlogService = {};
+  _BlogService.get = function(callback) {
+    $http({ method : 'GET', url : 'json/blog.json' }).success(function(response, statusCode) {
+      if (statusCode === 200 || 304) {
+        callback(null, response);
+      } else {
+        callback(new Error(response), null);
+      }
+    }).error(function(response, statusCode) {
+      callback(new Error(response), null);
+    });
+  };
+  return _BlogService;
+};
+
+/*!
+ * App Module
+ */
+
 var angularBlogApp = angular.module('angularBlogApp', [], function($locationProvider, $filterProvider, $provide, $httpProvider) {
-  $provide.factory('BlogService', function($http, $location, $log) {
-    //return new BlogService($http, $location, $log);
+  $provide.factory('BlogService', function($http) {
+    return new BlogService($http);
   });
 
 }, { inject : ['$http', '$location', '$log']} )
@@ -35,9 +59,9 @@ function RoutingController($route) {
   $route.parent(this);
 };
 
-BlogController.$inject = ['$location'];
+BlogController.$inject = ['BlogService'];
 
-function BlogController($location) {
+function BlogController(BlogService) {
   var scope = this;
 };
 
