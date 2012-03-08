@@ -3,7 +3,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 body {
   background: url(../images/bg.png) 0 0 repeat;
   color: #333;
-  font-family: "Lucida Grande", Verdana, Geneva, arial, sans-serif;
+  font-family: 'Lucida Grande', verdana, sans-serif;
   font-size: 12px;
   line-height: 1.5;
   text-align: center;
@@ -38,6 +38,18 @@ p {
   position: relative;
   width: 800px;
   padding-top: 40px;
+}
+
+#github {
+  position: absolute;
+  top: 0;
+  right: 0; 
+  border: 0; 
+  opacity: 0.3;
+}
+
+#github a {
+  border: none;
 }
 
 #header {
