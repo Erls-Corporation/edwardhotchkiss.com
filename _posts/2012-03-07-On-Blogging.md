@@ -1,6 +1,10 @@
 ---
 layout: post
 title: On Blogging.
+tags:
+ - Blogging
+ - Writing
+ - Jekyll 
 ---
 
 When I was a much younger developer; I often actively wondered why older developers around me were not embracing blogging. I felt that it was this excitig new technology that would change how we communicated. I wrote, and often felt that the seemingly wiser, older tech stars had much more to say than myself. So I stopped writing.

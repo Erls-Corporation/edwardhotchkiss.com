@@ -105,9 +105,18 @@ span.italic {
   font-weight: bold;
 }
 
-.post-content {
+.post-content, .post-tags {
   margin-left: 200px;
   width: 500px;
+}
+
+.post-tags {
+  border-top: 1px solid #aaa;
+  padding-top: 15px; 
+}
+
+.post-tags a {
+  margin: 0 1px 0 3px;
 }
 
 .post-content h4 {

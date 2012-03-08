@@ -10,4 +10,12 @@ layout: default
     <h4><a a:href="">{{ page.title }}</a></h4>
     {{ content }}
   </div> 
+  <div class="post-tags">
+    <p>
+      Tagged: 
+      {% for tag in page.tags %}
+        <span class="strong">{{ tag }}</span>
+      {% endfor %}
+    </p>
+  </div>
 </div> 
