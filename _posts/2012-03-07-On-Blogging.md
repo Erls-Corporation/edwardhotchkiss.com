@@ -7,7 +7,7 @@ tags:
  - Jekyll 
 ---
 
-When I was a much younger developer; I often actively wondered why older developers around me were not embracing blogging. I felt that it was this excitig new technology that would change how we communicated. I wrote, and often felt that the seemingly wiser, older tech stars had much more to say than myself. So I stopped writing.
+When I was a much younger developer; I often wondered why older developers were not embracing blogging. I felt that it was this excitig new technology that would change how we communicated. I wrote, and often felt that the seemingly wiser, older tech stars had much more to say than myself. So I stopped writing.
 
 Flash-forward to **Age 30**, and I think of a quote by the lovel Ms. Plath:
 
