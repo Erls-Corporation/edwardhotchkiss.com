@@ -4,13 +4,36 @@ title: Software Engineer
 ---
 
 <div id="entrance">
-  <p>My name is <span class="strong">Edward Hotchkiss</span> and I'm a <span class="italic">Software Engineer</span> and <span class="italic">Entrepreneur</span> based in NYC. My work with startups focuses on Node.js, Angular.js and other emerging technologies.
-  <ul>
-    {% for post in site.posts %}
+  <div id="about">
+    <h2>About</h2>
+    <p>&rarr; My name is <span class="strong">Edward Hotchkiss</span> and I'm a <span class="italic">Software Engineer</span> and <span class="italic">Entrepreneur</span> based in NYC. My work with startups focuses on <span class="strong">Node.js</span>, <span class="strong">Angular.js</span> and other emerging technologies.
+  </div>
+  <div id="projects-posts-listed">
+    <h2>Notable Code</h2>
+    <ul>
       <li>
-        <span>{{ post.date | date: "%B %e, %Y" }}</span> 
-        <a href="{{ post.url }}">{{ post.title }}</a>
+        - <a href="https://github.com/edwardhotchkiss/short">Short</a> -- <span class="italic">Node.JS URL Shortener backed by Mongoose.JS w/ Examples.</span>
       </li>
-    {% endfor %}
-  </ul>
+      <li>
+        - <a href="https://github.com/edwardhotchkiss/github3">Github3</a> -- <span class="italic">Node.JS GitHub API (v3) Wrapper.</span>
+      </li>
+       <li>
+        - <a href="https://github.com/edwardhotchkiss/always">Always</a> -- <span class="italic">CLI Tool to run a Node.JS Process, Restarting on File Changes &amp; Crashes</span>
+      </li>
+       <li>
+        - <a href="https://github.com/edwardhotchkiss/mongodb-viewer">MongoDB Viewer</a> -- <span class="italic">Node.JS MongoDB web-based Admin/Viewer Tool</span>
+      </li>
+    </ul>
+  </div>
+  <div id="blog-posts-listed">
+    <h2>Blog Posts</h2>
+    <ul>
+      {% for post in site.posts %}
+        <li>
+          - <span>{{ post.date | date: "%B %e, %Y" }}</span> 
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>

@@ -33,13 +33,6 @@ p {
   text-align: left;
 }
 
-.container {
-  margin: 0 auto 0 auto;
-  position: relative;
-  width: 800px;
-  padding-top: 40px;
-}
-
 #github {
   position: absolute;
   top: 0;
@@ -50,6 +43,13 @@ p {
 
 #github a {
   border: none;
+}
+
+#container {
+  margin: 0 auto 0 auto;
+  position: relative;
+  width: 800px;
+  padding-top: 40px;
 }
 
 #header {
@@ -83,12 +83,33 @@ p {
 }
 
 #entrance {
-  margin-top: 50px;  
+  margin-left: 100px;
+  margin-top: 50px;
+  width: 500px;
 }
 
 #entrance h1 {
   font-size: 24px;
   text-align: left;
+}
+
+#blog-posts-listed, #projects-posts-listed, #about {
+  margin-top: 30px;
+}
+
+#blog-posts-listed h2, #projects-posts-listed h2, #about h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: left;
+}
+
+#blog-posts-listed ul, #projects-posts-listed ul, #about p {
+  margin-top: 10px;  
+}
+
+#blog-posts-listed ul li, #projects-posts-listed ul li, #about p {
+  text-align: left;
+  margin-bottom: 5px;
 }
 
 .post {
@@ -101,6 +122,10 @@ span.strong {
 
 span.italic {
   font-style: italic;
+}
+
+span.underline {
+  border-bottom: 1px solid #bbb;
 }
 
 .post-meta {
