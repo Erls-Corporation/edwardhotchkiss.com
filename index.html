@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:ng="http://angularjs.org" lang="en" ng:app="angularBlogApp">
+<html>
 <head>
   <title>Edward Hotchkiss, Developer</title>
   <meta name="title" content="Edward Hotchkiss, Developer" />
@@ -22,11 +22,17 @@
       <div style="clear:both" />
     </ul> 
   </div>
-  <div ng:controller="RoutingController">
-    <ng:view></ng:view>
+  <div class="container">      
+    <div class="post">      
+      <div class="post-meta">
+        <p>March 6th, 2012</p>            
+      </div>  
+      <div class="post-content">
+        <h4><a ng:href="#/blog/on-blogging/" title="On Blogging.">On Blogging.</a></h4>
+        <p>When I was a much younger developer; I often wondered quite actively why the older developers around me were not embracing blogging. I felt that it was this excitig new technology that would change how we communicated. I wrote, and often felt that the seemingly wiser, older tech stars had much more to say than myself. So I stopped writing.</p><p>Flash-forward to <span class="strong">Age 30</span> year, and I think of a quote:</p><blockquote>'The silence depressed me. It wasn't the silence of silence. It was my own silence.'<br>-- Sylvia Plath, 'The Bell Jar'</blockquote><p>More and more often I meet younger developers that have questions, with a yearn for truly satisfying knowledge. I may now speak.</p>
+      </div> 
+    </div>    
   </div>
-  <script src="javascripts/vendor/angular-0.10.6.min.js" ng:autobind></script>
-  <script src="javascripts/angularBlogApp.js"></script>
   <script type="text/javascript">var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-28085919-3']);
     _gaq.push(['_trackPageview']);
