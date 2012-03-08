@@ -70,12 +70,25 @@ p {
   margin-right: 3px;
 }
 
+#entrance {
+  margin-top: 50px;  
+}
+
+#entrance h1 {
+  font-size: 24px;
+  text-align: left;
+}
+
 .post {
   width: 700px;
 }
 
 span.strong {
   font-weight: bold;
+}
+
+span.italic {
+  font-style: italic;
 }
 
 .post-meta {

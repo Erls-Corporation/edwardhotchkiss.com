@@ -1,46 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Edward Hotchkiss, Developer</title>
-  <meta name="title" content="Edward Hotchkiss, Developer" />
-  <meta name="description" content="I'm a Software Engineer and Entrepreneur based out of NYC. My work on startups focuses on Node.js and emerging Tech" />
-  <meta property="og:title" content="Edward Hotchkiss, Developer"/>
-  <meta property="og:image" content="http://edwardhotchkiss.github.com/images/edward.jpg"/>
-  <meta property="og:site_name" content="Edward Hotchkiss, Developer"/>
-  <meta property="og:description" content="I'm a Software Engineer and Entrepreneur based out of NYC. My work on startups focuses on Node.js and emerging Tech" />
-  <meta property="og:url" content="http://edwardhotchkiss.github.com/"/>
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
-  <link rel="stylesheet" href="css/style.css"/>
-  </head>
-<body>
-  <div id="header">
-    <ul>
-      <li class="title"><a href="/">Edward Hotchkiss, Developer</a></li>
-      <li><a target="_blank" title="LinkedIn" href="http://www.linkedin.com/in/edwardhhotchkiss">LinkedIn</a></li>
-      <li><a target="_blank" title="GitHub" href="https://github.com/edwardhotchkiss">GitHub</a></li>
-      <li><a target="_blank" title="Twitter" href="https://twitter.com/#!/kisshotch">Twitter</a></li>
-      <div style="clear:both" />
-    </ul> 
-  </div>
-  <div class="container">      
-    <div class="post">      
-      <div class="post-meta">
-        <p>March 6th, 2012</p>            
-      </div>  
-      <div class="post-content">
-        <h4><a a:href="#/blog/on-blogging/" title="On Blogging.">On Blogging.</a></h4>
-        <p>When I was a much younger developer; I often wondered quite actively why the older developers around me were not embracing blogging. I felt that it was this excitig new technology that would change how we communicated. I wrote, and often felt that the seemingly wiser, older tech stars had much more to say than myself. So I stopped writing.</p><p>Flash-forward to <span class="strong">Age 30</span> year, and I think of a quote:</p><blockquote>'The silence depressed me. It wasn't the silence of silence. It was my own silence.'<br>-- Sylvia Plath, 'The Bell Jar'</blockquote><p>More and more often I meet younger developers that have questions, with a yearn for truly satisfying knowledge. I may now speak.</p>
-      </div> 
-    </div>    
-  </div>
-  <script type="text/javascript">var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-28085919-3']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-</body>
-</html>
+---
+layout: default
+title: Software Engineer
+---
+
+<div id="entrance">
+  <p>My name is <span class="strong">Edward Hotchkiss</span> and I'm a <span class="italic">Software Engineer</span>.
+  <ul>
+    {% for post in site.posts %}
+      <li>
+        <span>{{ post.date | date: "%B %e, %Y" }}</span> 
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

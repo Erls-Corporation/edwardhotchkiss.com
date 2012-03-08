@@ -1,2 +1,0 @@
-
-# edwardhotchkiss.com
