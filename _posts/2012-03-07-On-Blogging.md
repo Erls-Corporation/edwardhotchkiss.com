@@ -1,6 +1,7 @@
 ---
 layout: post
 title: On Blogging
+description: When I was a much younger developer; I often wondered why older developers were not embracing blogging. I felt that it was this excitig new technology that would change how we communicated. I wrote, and often felt that the seemingly wiser, older tech stars had much more to say than myself. So I stopped writing.
 tags:
  - Blogging
  - Writing
