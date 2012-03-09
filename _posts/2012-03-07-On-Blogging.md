@@ -1,6 +1,6 @@
 ---
 layout: post
-title: On Blogging.
+title: On Blogging
 tags:
  - Blogging
  - Writing

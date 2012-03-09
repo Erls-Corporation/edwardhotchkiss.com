@@ -6,7 +6,7 @@ body {
   font-family: 'Lucida Grande', verdana, sans-serif;
   font-size: 12px;
   line-height: 1.5;
-  text-align: center;
+  margin-bottom: 100px;
 }
 
 a {
@@ -116,7 +116,7 @@ p {
   width: 700px;
 }
 
-span.strong {
+span.strong, strong {
   font-weight: bold;
 }
 
@@ -156,8 +156,10 @@ span.underline {
   margin: 0 1px 0 3px;
 }
 
-.post-content h4 {
-  text-align: left;
+.post-content h3 {
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 15px;  
 }
 
 blockquote {
