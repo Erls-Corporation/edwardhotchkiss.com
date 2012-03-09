@@ -2,6 +2,10 @@
 layout: default
 ---
 
+<script type="text/javascript">
+    mpq.track('{{ page.title }}');
+</script>
+
 <div class="post">      
   <div class="post-meta">
     <p>{{ page.date | date: "%B %e, %Y" }}</p>            
@@ -19,6 +23,3 @@ layout: default
     </p>
   </div>
 </div>
-<script type="text/javascript">
-    mpq.track('{{ page.title }}');
-</script>
