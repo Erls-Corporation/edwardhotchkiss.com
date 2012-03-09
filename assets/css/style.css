@@ -82,32 +82,31 @@ p {
   margin-right: 3px;
 }
 
-#entrance {
+.entrance {
   margin-left: 100px;
-  margin-top: 50px;
   width: 500px;
 }
 
-#entrance h1 {
+.entrance h1 {
   font-size: 24px;
   text-align: left;
 }
 
-#blog-posts-listed, #projects-posts-listed, #about {
-  margin-top: 30px;
+.entrance-item {
+  margin-bottom: 30px;
 }
 
-#blog-posts-listed h2, #projects-posts-listed h2, #about h2 {
+.entrance-item h2 {
   text-transform: uppercase;
   font-weight: bold;
   text-align: left;
 }
 
-#blog-posts-listed ul, #projects-posts-listed ul, #about p {
+.entrance-item ul, .entrance-item p {
   margin-top: 10px;  
 }
 
-#blog-posts-listed ul li, #projects-posts-listed ul li, #about p {
+.entrance-item ul li {
   text-align: left;
   margin-bottom: 5px;
 }
