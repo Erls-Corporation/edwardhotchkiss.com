@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Flash vs. HTML5 & The debates exclusion of mentioning Adobe AIR
+title: Flash vs. HTML5. The debates exclusion of mentioning Adobe AIR
 description: The debate rages on over whether or not the Apple iPad is a 'Flash Killer'
 tags:
  - HTML5

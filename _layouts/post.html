@@ -3,7 +3,7 @@ layout: default
 ---
 
 <script type="text/javascript">
-    mpq.track('{{ page.title }}');
+  jekyll.mpq.track('{{ page.title }}');
 </script>
 
 <div class="post">      
@@ -11,7 +11,7 @@ layout: default
     <p>{{ page.date | date: "%B %e, %Y" }}</p>            
   </div>  
   <div class="post-content">
-    <h4><a a:href="">{{ page.title }}</a></h4>
+    <h4><a href="{{ page.url }}">{{ page.title }}</a></h4>
     {{ content }}
   </div> 
   <div class="post-tags">
