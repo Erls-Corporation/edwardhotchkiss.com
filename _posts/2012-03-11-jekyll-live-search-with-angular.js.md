@@ -9,17 +9,19 @@ tags:
  - Search
 ---
 
-**Background**
+**Background:**
 
-I wanted users hitting my static [Jekyll](http://jekyllrb.com/) site's [404 page](http://edwardhotchkiss.com/404.html) to be able to live search. Since Jekyll is static, I use [Angular.js](http://angularjs.org).
+I wanted users hitting my static [Jekyll](http://jekyllrb.com/) site's [404 page](http://edwardhotchkiss.com/404.html) to be able to live search. As you type, blog pages related to your query should show up in real-time. Since Jekyll is static, I use [Angular.js](http://angularjs.org) on the client-side.
+
+**Why Angular.js?**
 
 Forget [Backbone.js](http://documentcloud.github.com/backbone/), [Knockout.js](http://knockoutjs.com/) and [Spine](https://github.com/maccman/spine). Try Angular and then note the resulting LOC. Spend that extra time at the bar. Buy me a beer while you're there.
 
-Angular.js let's me setup an AJAX resource, and bind it to a filter (in this case, a text input). Upon load, the XHR request fires, then pulls my [RSS Feed](/feed.xml), parses the XMLDocument and binds it to my controller as an object called "posts". "posts" is rendered into my HTML via a templating system which attaches models via the Controller to the my Template once it is available within my scope.
+I set Angular to bind an XHR resource to a filter (in this case, a text input). Upon load, the GET request fires, then pulls my [RSS Feed](/feed.xml), parsing the XMLDocument and placing it in the scope of my controller as an object called "posts". "posts" is rendered into my HTML via a templating system which attaches models via the Controller to the my Template once it is available.
 
 As the user types, the "Posts" object is filtered and applied to the template. You can check it out here: [http://edwardhotchkiss.com/404.html](http://edwardhotchkiss.com/404.html).
 
-First we need to be able to allow double curly brackets in our templates (Jekyll/Liquid issue). Since Liquid strips these out we need to edit config.yml.
+First we need to be able to allow double curly brackets in our templates, since Liquid strips these out interpreting them as Liquid Tags. We need to edit config.yml to fix this.
 
 **_config.yml:**
 
@@ -125,7 +127,5 @@ function JekyllSearchController($http) {
 
 {% endhighlight %}
 
-There it is. It's sexy as hell! As always, any questions just [Email Me](mailto:edwardhotchkiss@me.com).
-
-**Demo/Live here**: [http://edwardhotchkiss.com/404.html](http://edwardhotchkiss.com/404.html)
+There it is, sexy as hell! As always, any questions just [Email Me](mailto:edwardhotchkiss@me.com).
 
