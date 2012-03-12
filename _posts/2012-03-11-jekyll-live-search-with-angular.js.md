@@ -171,7 +171,7 @@ function SearchController($http) {
 
 **UPDATE (Later that night!):**
 
-I got a great email from [Boris Bokowski](https://github.com/bokowski) who linked me to a fiddle that ***"I might find interesting"***. Interesting indeed. So I updated the demo here on my site and this article -- to include a highlight filter & a proper Angular 0.10.x Module. Thanks again Boris.
+I got a great email from [Boris Bokowski](https://twitter.com/bokowski) who linked me to a fiddle that ***"I might find interesting"***. Interesting indeed. So I updated the demo here on my site and this article -- to include a highlight filter & a proper Angular 0.10.x Module. Thanks again Boris.
 
 There it is, sexy as hell! As always, any questions just [Email Me](mailto:edwardhotchkiss@me.com).
 
