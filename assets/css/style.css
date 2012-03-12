@@ -22,7 +22,7 @@ a:hover {
 h4 {
   color: #111;
   font-weight: bold;
-  margin-bottom: 1em;
+  margin-bottom: 10px;
 }
 
 p, blockquote {
@@ -48,7 +48,7 @@ p {
 #container {
   margin: 0 auto 0 auto;
   position: relative;
-  width: 800px;
+  width: 900px;
   padding-top: 40px;
 }
 
@@ -83,8 +83,7 @@ p {
 }
 
 .entrance {
-  margin-left: 100px;
-  width: 500px;
+  width: 900px;
 }
 
 .entrance h1 {
@@ -93,6 +92,9 @@ p {
 }
 
 .entrance-item {
+  position: relative;
+  width: 700px;
+  margin: 0 auto 0 auto;
   margin-bottom: 30px;
 }
 
@@ -112,7 +114,7 @@ p {
 }
 
 .post {
-  width: 700px;
+  width: 800px;
 }
 
 span.strong, strong {
@@ -143,7 +145,7 @@ span.underline {
 
 .post-content, .post-tags {
   margin-left: 200px;
-  width: 500px;
+  width: 600px;
 }
 
 .post-tags {
