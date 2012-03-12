@@ -143,7 +143,7 @@ span.underline {
   font-weight: bold;
 }
 
-.post-content, .post-tags {
+.post-content, .post-tags, #disqus_thread {
   margin-left: 200px;
   width: 600px;
 }
