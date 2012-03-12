@@ -54,24 +54,53 @@ $ git@github.com:edwardhotchkiss/edwardhotchkiss.github.com.git
 
 {% highlight html %}
 
-<div id="search-container" class="entrance" ng:app>
-  <div ng:controller="JekyllSearchController">
-    <div class="entrance-item">
-      <h2>Error 404, Engineer Gone Rogue!</h2>
-      <p><input placeholder="Live Search Posts..." ng:model="searchText" /> 
-      or <a href="mailto:edwardhotchkiss@me.com">Email Me</a></p>
-    </div>
-    <div class="entrance-item">
-      <h2>Blog Posts</h2>
-      <ul ng:repeat="post in posts | filter:searchText">
-        <li>
-          - <span>{{ site.leftCurleys }} post.date {{ site.rightCurleys }}</span> &raquo; 
-          <a href="{{ site.leftCurleys }} post.url {{ site.rightCurleys }}">{{ site.leftCurleys }} post.title {{ site.rightCurleys }}</a>
-        </li>
-      </ul>
-    </div>
+<div id="search-container" class="entrance" ng:app="JekyllApp" ng:controller="SearchController">
+  <div class="entrance-item">
+    <h2>Error 404, Engineer Gone Rogue!</h2>
+    <p><input id="searchText" type="search" placeholder="Live Search Posts..." ng:model="searchText" /> 
+    or <a href="mailto:edwardhotchkiss@me.com">Email Me</a></p>
+  </div>
+  <div class="entrance-item">
+    <h2>Blog Posts</h2>
+    <ul>
+      <li ng:repeat="post in posts | filter:searchText">
+        - <span>{{ site.leftCurleys }} post.date {{ site.rightCurleys }}</span> &raquo; 
+        <a href="{{ site.leftCurleys }} post.url {{ site.rightCurleys }}">{{ site.leftCurleys }} post.title | highlight:searchText | html {{ site.rightCurleys }}</a>
+      </li>
+    </ul>
   </div>
 </div>
+
+{% endhighlight %}
+
+**CSS:**
+
+{% highlight css %}
+
+#searchText {
+  line-height:22px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset;
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset;
+  border: 1px solid #ccc;
+  color: #999;
+  padding: 6px 15px 6px 15px;
+  -webkit-border-radius:15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  margin-right: 15px;
+}
+
+.match {
+  background-color: #f9ffa1;
+  -webkit-animation-name: pop;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;    
+}
 
 {% endhighlight %}
 
@@ -80,16 +109,29 @@ $ git@github.com:edwardhotchkiss/edwardhotchkiss.github.com.git
 {% highlight javascript %}
 
 /**
+ * Setup Module with `highlight` filter
+ */
+
+angular.module('JekyllApp', []).filter('highlight', function() {
+  return function(text, filter) {
+    if (filter === undefined) {
+      return text;
+    };
+    return text.replace(new RegExp(filter, 'gi'), '<span class="match">$&</span>');
+  };
+});
+
+/**
  * Inject $http Object into our Controller
  */
   
-JekyllSearchController.$inject = ['$http'];
+SearchController.$inject = ['$http'];
 
 /**
  * Controls our Search Filter & View
  */
 
-function JekyllSearchController($http) {
+function SearchController($http) {
   var scope = this;
   var posts = [];
   var params = { method : 'GET', url : '/feed.xml' };
@@ -126,6 +168,10 @@ function JekyllSearchController($http) {
 /* EOF */
 
 {% endhighlight %}
+
+**UPDATE (Later that night!):**
+
+I got a great email from [Boris Bokowski](https://github.com/bokowski) who linked me to a fiddle that ***"I might find interesting"***. Interesting indeed. So I updated the demo here on my site and this article -- to include a highlight filter & a proper Angular 0.10.x Module. Thanks again Boris.
 
 There it is, sexy as hell! As always, any questions just [Email Me](mailto:edwardhotchkiss@me.com).
 
