@@ -12,26 +12,12 @@
   <meta property="og:description" content="{{ page.description }}" />
   <meta property="og:url" content="http://edwardhotchkiss.com/"/>
   <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
-  <link rel="stylesheet" type="text/css" href="/assets/css/style.css"/>
-  <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css"/>
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"/>
   <link rel="alternate" type="application/rss+xml" title="Edward Hotchkkss - RSS Feed" href="/feed.xml" />
   <script type="text/javascript">var mpq=[];mpq.push(["init","9650aedaf0c972531ce020fbfcf1de28"]);(function(){var b,a,e,d,c;b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a);e=function(f){return function(){mpq.push([f].concat(Array.prototype.slice.call(arguments,0)))}};d=["init","track","track_links","track_forms","register","register_once","identify","name_tag","set_config"];for(c=0;c<d.length;c++){mpq[d[c]]=e(d[c])}})();
   </script>
+  <script type="text/javascript" src="/assets/js/main.min.js"></script>
   <script type="text/javascript">
-    var jekyll = Object.create({
-      mpq : {
-        track : function(eventName, properties, callback) {
-          properties = properties || {};
-          callback = callback || function(){};
-          if (!/localhost/.test(document.location.hostname)) {
-            mpq.track(eventName, properties, callback);
-            if (document.referrer) {
-              mpq.track('referrer', { url : document.referrer});
-            };
-          };
-        }
-      }
-    });
     jekyll.mpq.track('Site Hit');
   </script>
 </head>
