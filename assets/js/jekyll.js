@@ -11,9 +11,6 @@ jekyll.mpq = {
     callback = callback || function(){};
     if (!/localhost/.test(document.location.hostname)) {
       mpq.track(eventName, properties, callback);
-      if (document.referrer) {
-        mpq.track('referrer', { url : document.referrer});
-      };
     };
   }
 };
