@@ -14,7 +14,7 @@ css:
 
 # minify JavaScript with UgilifyJS
 js:
-	uglifyjs -o ${JS_DIR}main.min.js ${JS_DIR}jekyll.js
+	uglifyjs -o ${JS_DIR}main.min.js --no-mangle --no-squeeze ${JS_DIR}jekyll.js
 
 # start jekyll
 run:
