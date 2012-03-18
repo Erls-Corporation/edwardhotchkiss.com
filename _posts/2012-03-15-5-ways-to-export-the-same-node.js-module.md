@@ -7,9 +7,9 @@ tags:
  - Module
 ---
 
-When I look through the code of some of my first ***Node.JS*** modules that I wrote I look at the different ways that I handled their class structure and export. It's all eye-candy to me, but pick your favorite, or .apply() as argumented.
+When I look through the code of some of my first [Node.JS](http://nodejs.org/) modules that I wrote I look at the different ways that I handled their class structure and export. It's all eye-candy to me, but pick your favorite, or .apply() as argumented.
 
-This module is called "dude", and all it does is one thing (for brevity): console.log('%s').
+This module is called **"dude"**, and all it does is one thing (for brevity) via a public method named **"say"**.
 
 **Usage.js**
 
