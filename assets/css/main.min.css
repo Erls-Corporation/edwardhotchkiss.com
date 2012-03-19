@@ -23,6 +23,7 @@ p{text-align:left;}
 .entrance h1{font-size:24px;text-align:left;}
 .entrance-item{position:relative;width:700px;margin:0 auto 0 auto;margin-bottom:30px;}
 .entrance-item h2{text-transform:uppercase;font-weight:bold;text-align:left;}
+.header-year{margin:20px 0 20px 0;}
 .entrance-item ul,.entrance-item p{margin-top:10px;}
 .entrance-item ul li{text-align:left;margin-bottom:5px;}
 .post{width:800px;}
