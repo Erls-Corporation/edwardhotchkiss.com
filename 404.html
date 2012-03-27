@@ -63,22 +63,26 @@ function SearchController($scope, $http) {
    * GET our XML Feed
    */
   $http(params).success(function(response, statusCode) {
-    var feed = angular.element(response);
-    var entries = feed.children('entries');
-    /**
-     * Map through RSS/XML Document.
-     * Pull out <entry />'s, parse into posts [] objects
-     */
-    angular.forEach(entries, function(entry) {
-      if (angular.element(entry).children().length === 5) {
-        var _children = angular.element(entry).children();
-        var title = _children[0].innerHTML;
-        var url = _children[1].href;
-        var date = _children[2].innerHTML;
-        var post = { title : title, url : url, date : date };
-        posts.push(post);
-      };
-    });
+    if (typeof(jQuery) === 'undefined') {
+      var feed = angular.element(response);
+      var entries = feed.children('entries');
+      /**
+       * Map through RSS/XML Document.
+       * Pull out <entry />'s, parse into posts [] objects
+       */
+      angular.forEach(entries, function(entry) {
+        if (angular.element(entry).children().length === 5) {
+          var _children = angular.element(entry).children();
+          var title = _children[0].innerHTML;
+          var url = _children[1].href;
+          var date = _children[2].innerHTML;
+          var post = { title : title, url : url, date : date };
+          posts.push(post);
+        };
+      });
+    } else {
+      throw new Error("jQuery handles XML differently than Angular! This won't work!");
+    };
     /**
      * Posts are ready, bind to Scope/View
      */
