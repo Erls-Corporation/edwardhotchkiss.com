@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Learning Angular.js 1.0.0 - part 1 of 10
-description: Learning Angular.js 1.0.0 - part 1 of 10
+title: Learning Angular.js 1.0.0, part 1 of 10 - Introduction to 1.0.0
+description: Learning Angular.js 1.0.0, part 1 of 10 - Introduction to 1.0.0
 tags:
  - Angular.js
  - Learning
@@ -13,6 +13,10 @@ tags:
 **Ranked #4 on Google search for Angular.js?**
 
 I was going over my [MixPanel](http://mixpanel.com/) analytics, and kept seeing a shitload of traffic coming in from [searching google for angular.js](www.google.com/search?q=angular.js). I'm ranked #4 with my [Jekyll Live Search with Angular.js](http://edwardhotchkiss.com/blog/2012/03/11/jekyll-live-search-with-angular.js/) so I feel obligated to take this from _drafts to _posts, and finish it.
+
+**Part 1:**
+
+Part 1 has one purpose. To show you some of the 1.0.0 breaking API changes, and to get you started with a proper directory structure and a trivial app which will let you expand upon (solo, or as we go along to more advanced posts this week) and build a non-trivial Web app.
 
 **Getting Real**
 
@@ -189,8 +193,13 @@ This is our view partial:
 
 {% endhighlight %}
 
-I wanted a quick intro into the new module system, some breaking API changes etc. I slated myself for nine more sequential Angular posts, where I can dive deep into building complex services, directives, using the Angular compiler etc.
+**Further Resources**
 
-**So keep checking back**
+  * [Angular.js Docs - Latest](http://docs-next.angularjs.org/api)
+  * [Angular.js Fiddles](https://github.com/angular/angular.js/wiki/JsFiddle-Examples)
+  * [New Project Angular-UI](http://github.com/angular-ui)
+
+
+**Check back tomorrow for part 2, "Rendering views retrieved from a Service".**
 
 
