@@ -33,6 +33,7 @@ span.underline{border-bottom:1px solid #bbb;}
 .post-meta{clear:both;width:180px;left:0;position:absolute;}
 .post-meta p{font-size:11px;text-align:right;color:#000;font-weight:bold;}
 .post-content,.post-tags,#disqus_thread{margin-left:200px;width:600px;}
+.post-content h4{padding-bottom:20px;}
 .post-tags{border-top:1px solid #aaa;padding-top:15px;}
 .post-tags a{margin:0 1px 0 3px;}
 .post-content h3{font-weight:bold;font-size:13px;margin-bottom:15px;}
