@@ -8,7 +8,7 @@ description: Error 404
   jekyll.mpq.track('Error 404');
 </script>
 
-<div id="search-container" class="entrance" ng:app="JekyllApp" ng:controller="SearchController">
+<div id="search-container" class="entrance" ng:app="JekyllApp" ng:controller="JekyllSearchController">
   <div class="entrance-item">
     <h2>Error 404, Engineer Gone Rogue!</h2>
     <p><input id="searchText" type="search" placeholder="Live Search Posts..." ng-model-instant ng:model="searchText" /> 
@@ -50,45 +50,24 @@ JekyllApp.filter('highlight', function() {
  * Inject $http Object into our Controller
  */
   
-SearchController.$inject = ['$scope', '$http'];
+JekyllSearchController.$inject = ['$scope', '$http'];
 
-/**
- * Controls our Search Filter & View
- */
-
-function SearchController($scope, $http) {
-  var posts = [];
-  var params = { method : 'GET', url : '/feed.xml' };
-  /**
-   * GET our XML Feed
-   */
-  $http(params).success(function(response, statusCode) {
-    if (typeof(jQuery) === 'undefined') {
-      var feed = angular.element(response);
-      var entries = feed.children('entries');
-      /**
-       * Map through RSS/XML Document.
-       * Pull out <entry />'s, parse into posts [] objects
-       */
-      angular.forEach(entries, function(entry) {
-        if (angular.element(entry).children().length === 5) {
-          var _children = angular.element(entry).children();
-          var title = _children[0].innerHTML;
-          var url = _children[1].href;
-          var date = _children[2].innerHTML;
-          var post = { title : title, url : url, date : date };
-          posts.push(post);
-        };
-      });
-    } else {
-      throw new Error("jQuery handles XML differently than Angular! This won't work!");
-    };
-    /**
-     * Posts are ready, bind to Scope/View
-     */
-    $scope.posts = posts;
-  }).error(function(response, statusCode) {
-    $scope.posts = null;
+function JekyllSearchController($scope, $http) {
+  var posts = $scope.posts = [];
+  $http.get('/feed.xml').success(function(response) {
+    var feed = angular.element(response);
+    var entries = feed.children('entries');
+    angular.forEach(entries, function(entry) {
+      var children = angular.element(entry).children();
+      if (children.length === 5) {
+        posts.push({
+          title : children[0].innerHTML,
+          url   : children[1].href,
+          date  : children[2].innerHTML
+        });
+      };
+    });
+  }).error(function() {
     console.error('xhr issue retreiving your feed!')
   });
 };

@@ -46,7 +46,7 @@ $ git@github.com:edwardhotchkiss/edwardhotchkiss.github.com.git
 
 {% highlight html %}
 
-<script type="text/javascript" src="http://code.angularjs.org/0.10.6/angular-0.10.6.min.js"></script>
+<script type="text/javascript" src="http://code.angularjs.org/1.0.0rc2/angular-1.0.0rc2.min.js"></script>
 
 {% endhighlight %}
 
@@ -54,18 +54,18 @@ $ git@github.com:edwardhotchkiss/edwardhotchkiss.github.com.git
 
 {% highlight html %}
 
-<div id="search-container" class="entrance" ng:app="JekyllApp" ng:controller="SearchController">
+<div id="search-container" class="entrance" ng:app="JekyllApp" ng:controller="JekyllSearchController">
   <div class="entrance-item">
     <h2>Error 404, Engineer Gone Rogue!</h2>
-    <p><input id="searchText" type="search" placeholder="Live Search Posts..." ng:model="searchText" /> 
+    <p><input id="searchText" type="search" placeholder="Live Search Posts..." ng-model-instant ng:model="searchText" /> 
     or <a href="mailto:edwardhotchkiss@me.com">Email Me</a></p>
   </div>
   <div class="entrance-item">
     <h2>Blog Posts</h2>
     <ul>
-      <li ng:repeat="post in posts | filter:searchText">
-        - <span>{{ site.leftCurleys }} post.date {{ site.rightCurleys }}</span> &raquo; 
-        <a href="{{ site.leftCurleys }} post.url {{ site.rightCurleys }}">{{ site.leftCurleys }} post.title | highlight:searchText | html {{ site.rightCurleys }}</a>
+      <li ng:repeat="post in posts">
+        - <span ng-bind-html="post.date | highlight:filterBy"></span> &raquo; 
+        <a href="{{ site.leftCurleys }} post.url {{ site.rightCurleys }}" ng-bind-html="post.title | highlight:searchText"></a>
       </li>
     </ul>
   </div>
@@ -108,16 +108,21 @@ $ git@github.com:edwardhotchkiss/edwardhotchkiss.github.com.git
 
 {% highlight javascript %}
 
+
 /**
  * Setup Module with `highlight` filter
  */
 
-angular.module('JekyllApp', []).filter('highlight', function() {
+var JekyllApp = angular.module('JekyllApp', [], function($routeProvider) {
+});
+
+JekyllApp.filter('highlight', function() {
   return function(text, filter) {
     if (filter === undefined) {
       return text;
+    } else {
+      return text.replace(new RegExp(filter, 'gi'), '<span class="match">$&</span>');
     };
-    return text.replace(new RegExp(filter, 'gi'), '<span class="match">$&</span>');
   };
 });
 
@@ -125,47 +130,27 @@ angular.module('JekyllApp', []).filter('highlight', function() {
  * Inject $http Object into our Controller
  */
   
-SearchController.$inject = ['$http'];
+JekyllSearchController.$inject = ['$scope', '$http'];
 
-/**
- * Controls our Search Filter & View
- */
-
-function SearchController($http) {
-  var scope = this;
-  var posts = [];
-  var params = { method : 'GET', url : '/feed.xml' };
-  /**
-   * GET our XML Feed
-   */
-  $http(params).success(function(response, statusCode) {
+function JekyllSearchController($scope, $http) {
+  var posts = $scope.posts = [];
+  $http.get('/feed.xml').success(function(response) {
     var feed = angular.element(response);
     var entries = feed.children('entries');
-    /**
-     * Map through RSS/XML Document.
-     * Pull out <entry />'s, parse into posts [] objects
-     */
     angular.forEach(entries, function(entry) {
-      if (angular.element(entry).children().length === 5) {
-        var _children = angular.element(entry).children();
-        var title = _children[0].innerHTML;
-        var url = _children[1].href;
-        var date = _children[2].innerHTML;
-        var post = { title : title, url : url, date : date };
-        posts.push(post);
+      var children = angular.element(entry).children();
+      if (children.length === 5) {
+        posts.push({
+          title : children[0].innerHTML,
+          url   : children[1].href,
+          date  : children[2].innerHTML
+        });
       };
     });
-    /**
-     * Posts are ready, bind to Scope/View
-     */
-    scope.posts = posts;
-  }).error(function(response, statusCode) {
-    scope.posts = null;
+  }).error(function() {
     console.error('xhr issue retreiving your feed!')
   });
 };
-
-/* EOF */
 
 {% endhighlight %}
 
