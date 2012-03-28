@@ -193,7 +193,7 @@ This is our view partial:
 
 {% endhighlight %}
 
-**Further Resources**
+**Further Resources:**
 
   * [Angular.js Docs - Latest](http://docs-next.angularjs.org/api)
   * [Angular.js Fiddles](https://github.com/angular/angular.js/wiki/JsFiddle-Examples)
