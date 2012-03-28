@@ -1,0 +1,196 @@
+---
+layout: post
+title: Learning Angular.js 1.0.0 - part 1 of 10
+description: Learning Angular.js 1.0.0 - part 1 of 10
+tags:
+ - Angular.js
+ - Learning
+ - tutorial
+ - rc2
+ - MVC
+---
+
+**Ranked #4 on Google search for Angular.js?**
+
+I was going over my [MixPanel](http://mixpanel.com/) analytics, and kept seeing a shitload of traffic coming in from [searching google for angular.js](www.google.com/search?q=angular.js). I'm ranked #4 with my [Jekyll Live Search with Angular.js](http://edwardhotchkiss.com/blog/2012/03/11/jekyll-live-search-with-angular.js/) so I feel obligated to take this from _drafts to _posts, and finish it.
+
+**Getting Real**
+
+If you're not using **Angular.js** and you're either crafting from hand with [jQuery](http://jquery.org) or using one of the [fads](http://backbonejs.com) [that](http://knockoutjs.com/) [kicked](https://github.com/maccman/spine/) [off](http://sammyjs.org/) the Client-side Routing and MVC changeup, it's time to get real, and work even faster. 
+
+> This is the true story... of seven strangers... picked to live in a house...work together and have their lives taped... to find out what happens... when people stop being polite... and start getting real...
+
+> -- The Real World.
+
+Before [37 Signals got real](http://gettingreal.37signals.com/), There was "The Real World". Yeah, I know; Awesome.
+
+**Angular current - 1.0.0 RC2**
+
+I've spoken with a lot of developers that didn't go with Angular, because they said that the API was too fast in flux and that the docs weren't that great. They moved on, and passed it by. This is unfortunate. **Angular** is currently on 1.0.0 RC2 (**finally**) with the core team telling me to expect about one RC per week until we are at a release. The API changes are **not breaking** anymore and if there ever was a time to seize the day, it's now.
+
+**Getting started today the fast way**
+
+I've started working on a project to scaffold [Node.JS](http://nodejs.org) backend routes over [MongoDB](http://mongodb.org) using **Angular** views/controller/services. I know right, why not scaffold the fastest client-side development framework ever written? Right now, you can use my [CLI Node.js Module](http://search.npmjs.org/#/angular) to automatically generate a new Node.js and Angular project, with **HTML5 Routing**, the new **$routeProvider** and **module** structure already setup. So keep an eye on the project & hold up for scaffolding, as the project is pretty new (a few days).
+
+{% highlight bash %}
+
+$ sudo npm install angular -g
+$ angular new myapp && cd myapp
+$ npm install
+$ angular server 8080
+$ open "http://localhost:8080"
+
+{% endhighlight %}
+
+**Getting started the boring way**
+
+If you want to manually grab these starting files, head over to [node-angular](https://github.com/edwardhotchkiss/node-angular/tree/master/lib/node-angular/templates) and just git clone then keep those files handy.
+
+**Features of this trivial app**
+
+The application is taking advantage of HTML5 pushState, and while we're hitting /welcome versus /#/welcome, [Express](http://expressjs.com/) is actually rendering our index.html view with Angular calling the appropriate partial based on our path (/welcome). The 1.0.0 **$routeProvider** takes care of this. While we're being shown /welcome vs. / this is because I set my default route to /welcome with $routeProvider.otherwise({ redirectTo : '/welcome' });
+
+**Node - /app/controllers/welcome.js**
+
+{% highlight javascript %}
+
+/**
+ * @route /welcome
+ */
+
+var path = require('path');
+
+module.exports = function(app) {
+
+  app.get('/welcome', function(request, response) {
+  	var html = path.normalize(__dirname + '/../../public/index.html');
+    response.sendfile(html);
+  });
+
+};
+
+{% endhighlight %}
+
+**Angular - /public/javascripts/app.js**
+
+{% highlight javascript %}
+
+var app = angular.module('app', [], function($routeProvider) {
+
+  $routeProvider.when('/welcome', {
+    template   : 'partials/welcome.html',
+    controller : WelcomeController  
+  });
+  $routeProvider.otherwise({ 
+    redirectTo : '/welcome'
+  });
+
+});
+
+app.config(function($locationProvider) {  
+  $locationProvider.hashPrefix('');
+  $locationProvider.html5Mode(true);
+});
+
+{% endhighlight %}
+
+If **Angular** doesn't detect HTML5 / pushState capabilities, it will fall back to hashes, which is why I set my hash prefix to an empty string.
+
+**Angular 1.0.0 Controllers and $scope**
+
+Angular controllers from 0.10.6 to 1.0.0 went from the classic JavaScript context referencing
+
+{% highlight javascript %}
+
+function Controller() {
+	var scope = this;
+	var context = this;
+	var self = this;
+}
+
+{% endhighlight %}
+
+to the **Angular Way** of injecting a scope or reference value
+
+{% highlight javascript %}
+
+/**
+ * controllers
+ */
+
+function WelcomeController($scope) {
+  $scope.pageHeader = 'v0.0.1';
+};
+
+{% endhighlight %}
+
+If I need access to a Service, an Angular provider etc, then I inject scope into my controller along with my required providers:
+
+{% highlight javascript %}
+
+/**
+ * controllers
+ */
+
+WelcomeController.$inject = ['$scope', '$location'];
+
+function WelcomeController($scope, $location) {
+  $scope.pageHeader = 'v0.0.1';
+};
+
+{% endhighlight %}
+
+**ng:app and our main view layout**
+
+In Angular 1.0.0 ng:autobind was removed and your angular script is referenced in a "normal" script tag fashion. In our layout we have a top level element with the ng:app attribute referencing our app, aptly titled "app". I have an <ng:view></ng:view> where my partials are loaded and controllers applied within that context.
+
+One of the huge breaking API changes is no longer using mustache style model values directly into our HTML elements. Instead we're using the attribute ng:bind-template="my-model-var" to apply.
+
+**Example**
+
+{% highlight html %}
+
+<p ng-bind-html="item.content | highlight:filterBy"></p>
+
+{% endhighlight %}
+
+Here's our main layout:
+
+**/public.index.html**
+
+{% highlight html %}
+
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" lang="en" ng:app="app" ng:init="">
+  <head>
+    <meta charset="utf-8">
+    <title ng:bind-template="Node-Angular {{ site.leftCurleys }}pageTitle{{ site.rightCurleys }}">Node-Angular</title>
+  </head>
+  <body>
+    <div>
+      <ng:view></ng:view>
+    </div>
+    <script type="text/javascript" src="javascripts/vendor/angular-1.0.0rc2.min.js" ng:autobind></script>
+    <script type="text/javascript" src="javascripts/app.js"></script>
+  </body>
+</html>
+
+{% endhighlight %}
+
+This is our view partial:
+
+**/public/partials/welcome.html**
+
+{% highlight html %}
+
+<div class="container" ng:init="$root.pageTitle = pageHeader">
+  <h1 ng-bind-html="pageHeader"></h1>
+</div>
+
+{% endhighlight %}
+
+I wanted a quick intro into the new module system, some breaking API changes etc. I slated myself for nine more sequential Angular posts, where I can dive deep into building complex services, directives, using the Angular compiler etc.
+
+**So keep checking back**
+
+
