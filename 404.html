@@ -8,16 +8,16 @@ description: Error 404
   jekyll.mpq.track('Error 404');
 </script>
 
-<div id="search-container" class="entrance" ng:app="JekyllApp" ng:controller="JekyllSearchController">
+<div id="search-container" class="entrance" ng-app="JekyllApp" ng-controller="JekyllSearchController">
   <div class="entrance-item">
     <h2>Error 404, Engineer Gone Rogue!</h2>
-    <p><input id="searchText" type="search" placeholder="Live Search Posts..." ng-model-instant ng:model="searchText" /> 
+    <p><input id="searchText" type="search" placeholder="Live Search Posts..." ng-model-instant ng-model="searchText" /> 
     or <a href="mailto:edwardhotchkiss@me.com">Email Me</a></p>
   </div>
   <div class="entrance-item">
     <h2>Blog Posts</h2>
     <ul>
-      <li ng:repeat="post in posts">
+      <li ng-repeat="post in posts">
         - <span ng-bind-html="post.date | highlight:filterBy"></span> &raquo; 
         <a href="{{ site.leftCurleys }} post.url {{ site.rightCurleys }}" ng-bind-html="post.title | highlight:searchText"></a>
       </li>

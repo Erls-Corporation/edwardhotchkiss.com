@@ -1,18 +1,18 @@
 ---
 layout: post
-title: Learning Angular.js 1.0.0, part 1 of 10 - Introduction to 1.0.0
-description: Learning Angular.js 1.0.0, part 1 of 10 - Introduction to 1.0.0
+title: Learning AngularJS 1.0.0, part 1 of 10 - Introduction to 1.0.0
+description: Learning AngularJS 1.0.0, part 1 of 10 - Introduction to 1.0.0
 tags:
- - Angular.js
+ - AngularJS
  - Learning
  - tutorial
  - rc2
  - MVC
 ---
 
-**Ranked #4 on Google search for Angular.js?**
+**Ranked #4 on Google search for AngularJS?**
 
-I was going over my [MixPanel](http://mixpanel.com/) analytics, and kept seeing a shitload of traffic coming in from [searching google for angular.js](www.google.com/search?q=angular.js). I'm ranked #4 with my [Jekyll Live Search with Angular.js](http://edwardhotchkiss.com/blog/2012/03/11/jekyll-live-search-with-angular.js/) so I feel obligated to take this from _drafts to _posts, and finish it.
+I was going over my [MixPanel](http://mixpanel.com/) analytics, and kept seeing a shitload of traffic coming in from [searching google for angular.js](www.google.com/search?q=angular.js). I'm ranked #4 with my [Jekyll Live Search with AngularJS](http://edwardhotchkiss.com/blog/2012/03/11/jekyll-live-search-with-angular.js/) so I feel obligated to take this from _drafts to _posts, and finish it.
 
 **Part 1:**
 
@@ -20,7 +20,7 @@ Part 1 has one purpose. To show you some of the 1.0.0 breaking API changes, and 
 
 **Getting Real**
 
-If you're not using **Angular.js** and you're either crafting from hand with [jQuery](http://jquery.org) or using one of the [fads](http://backbonejs.com) [that](http://knockoutjs.com/) [kicked](https://github.com/maccman/spine/) [off](http://sammyjs.org/) the Client-side Routing and MVC changeup, it's time to get real, and work even faster. 
+If you're not using **AngularJS** and you're either crafting from hand with [jQuery](http://jquery.org) or using one of the [fads](http://backbonejs.com) [that](http://knockoutjs.com/) [kicked](https://github.com/maccman/spine/) [off](http://sammyjs.org/) the Client-side Routing and MVC changeup, it's time to get real, and work even faster. 
 
 > This is the true story... of seven strangers... picked to live in a house...work together and have their lives taped... to find out what happens... when people stop being polite... and start getting real...
 
@@ -144,11 +144,11 @@ function WelcomeController($scope, $location) {
 
 {% endhighlight %}
 
-**ng:app and our main view layout**
+**ng-app and our main view layout**
 
-In Angular 1.0.0 ng:autobind was removed and your angular script is referenced in a "normal" script tag fashion. In our layout we have a top level element with the ng:app attribute referencing our app, aptly titled "app". I have an <ng:view></ng:view> where my partials are loaded and controllers applied within that context.
+In Angular 1.0.0 ng:autobind was removed and your angular script is referenced in a "normal" script tag fashion. In our layout we have a top level element with the ng-app attribute referencing our app, aptly titled "app". I have an <ng-view></ng-view> where my partials are loaded and controllers applied within that context.
 
-One of the huge breaking API changes is no longer using mustache style model values directly into our HTML elements. Instead we're using the attribute ng:bind-template="my-model-var" to apply.
+One of the huge API changes is no longer using mustache style model values directly in our HTML elements if we are using a | filter. Instead we're using the attribute ng-bind-template="my-model-var | filter:filter" to apply, (see below).
 
 **Example**
 
@@ -165,14 +165,14 @@ Here's our main layout:
 {% highlight html %}
 
 <!DOCTYPE html>
-<html xmlns:ng="http://angularjs.org" lang="en" ng:app="app" ng:init="">
+<html xmlns:ng="http://angularjs.org" lang="en" ng-app="app" ng-init="">
   <head>
     <meta charset="utf-8">
-    <title ng:bind-template="Node-Angular {{ site.leftCurleys }}pageTitle{{ site.rightCurleys }}">Node-Angular</title>
+    <title ng-bind-template="Node-Angular {{ site.leftCurleys }}pageTitle{{ site.rightCurleys }}">Node-Angular</title>
   </head>
   <body>
     <div>
-      <ng:view></ng:view>
+      <ng-view></ng-view>
     </div>
     <script type="text/javascript" src="javascripts/vendor/angular-1.0.0rc2.min.js" ng:autobind></script>
     <script type="text/javascript" src="javascripts/app.js"></script>
@@ -195,11 +195,17 @@ This is our view partial:
 
 **Further Resources:**
 
-  * [Angular.js Docs - Latest](http://docs-next.angularjs.org/api)
-  * [Angular.js Fiddles](https://github.com/angular/angular.js/wiki/JsFiddle-Examples)
+  * [AngularJS Docs - Latest](http://docs-next.angularjs.org/api)
+  * [AngularJS Fiddles](https://github.com/angular/angular.js/wiki/JsFiddle-Examples)
   * [New Project Angular-UI](http://github.com/angular-ui)
 
 
 **Check back tomorrow for part 2, "Rendering views retrieved from a Service".**
+
+
+**UPDATE 3-28-12 Igor Speaks!:**
+
+I received some comments from [Igor Minar](https://twitter.com/#!/igorminar) and it seems that the declarative XML style ng:whatever is now wholely substituted with ng-whatever. Thanks Igor and also for the note that it's **AngularJS** and ***not*** Angular.js. All the .js projects have their own convention, and it gets quite confusing.
+
 
 

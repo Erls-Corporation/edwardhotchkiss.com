@@ -1,19 +1,19 @@
 ---
 layout: post
-title: Jekyll Live Search with Angular.js
-description: Ever wanted a search page on Jekyll/Github Pages? This is a Live Search with Angular.js for Jekyll
+title: Jekyll Live Search with AngularJS
+description: Ever wanted a search page on Jekyll/Github Pages? This is a Live Search with AngularJS for Jekyll
 tags:
  - Jekyll
- - Angular.js
+ - AngularJS
  - Live
  - Search
 ---
 
 **Background:**
 
-I wanted users hitting my static [Jekyll](http://jekyllrb.com/) site's [404 page](http://edwardhotchkiss.com/404.html) to be able to live search. As you type, blog pages related to your query should show up in real-time. Since Jekyll is static, I use [Angular.js](http://angularjs.org) on the client-side.
+I wanted users hitting my static [Jekyll](http://jekyllrb.com/) site's [404 page](http://edwardhotchkiss.com/404.html) to be able to live search. As you type, blog pages related to your query should show up in real-time. Since Jekyll is static, I use [AngularJS](http://angularjs.org) on the client-side.
 
-**Why Angular.js?**
+**Why AngularJS?**
 
 Forget [Backbone.js](http://documentcloud.github.com/backbone/), [Knockout.js](http://knockoutjs.com/) and [Spine](https://github.com/maccman/spine). Try Angular and then note the resulting LOC. Spend that extra time at the bar. Buy me a beer while you're there.
 
@@ -54,16 +54,16 @@ $ git@github.com:edwardhotchkiss/edwardhotchkiss.github.com.git
 
 {% highlight html %}
 
-<div id="search-container" class="entrance" ng:app="JekyllApp" ng:controller="JekyllSearchController">
+<div id="search-container" class="entrance" ng-app="JekyllApp" ng-controller="JekyllSearchController">
   <div class="entrance-item">
     <h2>Error 404, Engineer Gone Rogue!</h2>
-    <p><input id="searchText" type="search" placeholder="Live Search Posts..." ng-model-instant ng:model="searchText" /> 
+    <p><input id="searchText" type="search" placeholder="Live Search Posts..." ng-model-instant ng-model="searchText" /> 
     or <a href="mailto:edwardhotchkiss@me.com">Email Me</a></p>
   </div>
   <div class="entrance-item">
     <h2>Blog Posts</h2>
     <ul>
-      <li ng:repeat="post in posts">
+      <li ng-repeat="post in posts">
         - <span ng-bind-html="post.date | highlight:filterBy"></span> &raquo; 
         <a href="{{ site.leftCurleys }} post.url {{ site.rightCurleys }}" ng-bind-html="post.title | highlight:searchText"></a>
       </li>
@@ -104,7 +104,7 @@ $ git@github.com:edwardhotchkiss/edwardhotchkiss.github.com.git
 
 {% endhighlight %}
 
-**Angular.js Controller & Parser:**
+**AngularJS Controller & Parser:**
 
 {% highlight javascript %}
 
@@ -154,7 +154,11 @@ function JekyllSearchController($scope, $http) {
 
 {% endhighlight %}
 
-**UPDATE (Later that night!):**
+**UPDATE 3-28-12 Igor Speaks!:**
+
+I received some comments from [Igor Minar](https://twitter.com/#!/igorminar) and it seems that the declarative XML style ng:whatever is now wholely substituted with ng-whatever. Thanks Igor and also for the note that it's **AngularJS** and ***not*** Angular.js. All the .js projects have their own convention, and it gets quite confusing.
+
+**UPDATE 3-11-12 (Later that night!):**
 
 I got a great email from [Boris Bokowski](https://twitter.com/bokowski) who linked me to a fiddle that ***"I might find interesting"***. Interesting indeed. So I updated the demo here on my site and this article -- to include a highlight filter & a proper Angular 0.10.x Module. Thanks again Boris.
 
