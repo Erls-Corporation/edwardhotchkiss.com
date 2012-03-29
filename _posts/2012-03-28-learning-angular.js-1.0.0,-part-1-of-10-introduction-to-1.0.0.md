@@ -165,7 +165,7 @@ Here's our main layout:
 {% highlight html %}
 
 <!DOCTYPE html>
-<html xmlns:ng="http://angularjs.org" lang="en" ng-app="app" ng-init="">
+<html lang="en" ng-app="app" ng-init="">
   <head>
     <meta charset="utf-8">
     <title ng-bind-template="Node-Angular {{ site.leftCurleys }}pageTitle{{ site.rightCurleys }}">Node-Angular</title>
