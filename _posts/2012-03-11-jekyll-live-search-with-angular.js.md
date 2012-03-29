@@ -63,7 +63,7 @@ $ git@github.com:edwardhotchkiss/edwardhotchkiss.github.com.git
   <div class="entrance-item">
     <h2>Blog Posts</h2>
     <ul>
-      <li ng-repeat="post in posts">
+      <li ng-repeat="post in posts | filter:searchText">
         - <span ng-bind-html="post.date | highlight:filterBy"></span> &raquo; 
         <a href="{{ site.leftCurleys }} post.url {{ site.rightCurleys }}" ng-bind-html="post.title | highlight:searchText"></a>
       </li>
