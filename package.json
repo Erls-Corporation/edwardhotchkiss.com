@@ -1,23 +1,16 @@
 {
-  "author": "Edward Hotchkiss <edward@edwardhotchkiss.com>",
-  "name": "edward",
-  "version": "0.0.1-18",
-  "engines": {
-    "node": ">= 0.4.11"
+  "author":"Edward Hotchkiss <edward@edwardhotchkiss.com>",
+  "name":"edward",
+  "private":true,
+  "version":"0.0.1",
+  "engines":{
+    "node": ">= 0.6.15"
   },
-  "dependencies": {
-    "express": "2.5.2",
-    "jade": "0.20.0",
-    "mongoose": "2.4.10",
-    "formidable": "1.0.x",
-    "knox": "0.0.9"
-  },
-  "scripts": {
-    "start": "app.js"
-  },
-  "subdomain": "edward",
-  "domains": [
-    "edwardhotchkiss.com",
-    "donttazemebro.edwardhotchkiss.com"
-  ]
+  "dependencies":{
+    "express":"2.5.9",
+    "jade":"0.25.0",
+    "mongoose":"2.6.0",
+    "formidable":"1.0.9",
+    "knox":"0.0.9"
+  }
 }
