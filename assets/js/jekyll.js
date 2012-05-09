@@ -3,7 +3,7 @@
  * Jekyll
  */
 
-var jekyll = {};
+jekyll = {};
 
 jekyll.mpq = {
   track : function(eventName, properties, callback) {
