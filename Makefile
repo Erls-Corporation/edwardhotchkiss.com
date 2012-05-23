@@ -13,4 +13,4 @@ js:
 run:
 	jekyll --server
 
-.PHONY: css
+.PHONY: css js

@@ -1,4 +1,4 @@
-source :rubygems
-
-gem 'jekyll'
-gem 'RedCloth'
+source 'http://rubygems.org'
+gem 'bundler'
+gem 'sinatra'
+gem 'rack-canonical-host'

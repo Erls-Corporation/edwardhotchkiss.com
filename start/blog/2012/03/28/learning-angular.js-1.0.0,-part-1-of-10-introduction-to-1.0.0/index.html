@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Learning AngularJS 1.0.0, part 1 of 10 - Introduction to 1.0.0</title>
+  <meta name="author" content="Edward Hotchkiss" />
+  <meta name="title" content="Learning AngularJS 1.0.0, part 1 of 10 - Introduction to 1.0.0" />
+  <meta name="description" content="Learning AngularJS 1.0.0, part 1 of 10 - Introduction to 1.0.0" />
+  <meta property="og:title" content="Learning AngularJS 1.0.0, part 1 of 10 - Introduction to 1.0.0"/>
+  <meta property="og:image" content="http://edwardhotchkiss.com/assets/images/edward.jpg"/>
+  <meta property="og:site_name" content="Edward Hotchkiss, Developer"/>
+  <meta property="og:description" content="Learning AngularJS 1.0.0, part 1 of 10 - Introduction to 1.0.0" />
+  <meta property="og:url" content="http://edwardhotchkiss.com/"/>
+  <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"/>
+  <link rel="alternate" type="application/rss+xml" title="Edward Hotchkkss - RSS Feed" href="/feed.xml" />
+  <script type="text/javascript">var mpq=[];mpq.push(["init","9650aedaf0c972531ce020fbfcf1de28"]);(function(){var b,a,e,d,c;b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a);e=function(f){return function(){mpq.push([f].concat(Array.prototype.slice.call(arguments,0)))}};d=["init","track","track_links","track_forms","register","register_once","identify","name_tag","set_config"];for(c=0;c<d.length;c++){mpq[d[c]]=e(d[c])}})();
+  </script>
+  <script type="text/javascript" src="/assets/js/main.min.js"></script>
+</head>
+<body>
+  <div id="github">
+    <a href="http://github.com/edwardhotchkiss/edwardhotchkiss.github.com/" title="http://github.com/edwardhotchkiss/edwardhotchkiss.github.com/">
+      <img src="/assets/images/github.png" alt="Github: edwardhotchkiss.com" />
+    </a>
+  </div>
+  <div id="header">
+    <ul>
+      <li class="title"><a href="/">Edward Hotchkiss, Software Engineer</a></li>
+      <li><a target="_blank" title="LinkedIn" href="http://www.linkedin.com/in/edwardhhotchkiss">LinkedIn</a></li>
+      <li><a target="_blank" title="GitHub" href="https://github.com/edwardhotchkiss">GitHub</a></li>
+      <li><a target="_blank" title="Twitter" href="https://twitter.com/#!/stricttype">Twitter</a></li>
+      <li><a target="_blank" title="Facebook" href="https://www.facebook.com/mrhotchkiss">Facebook</a></li>
+      <li><a target="_blank" title="Angel List" href="https://angel.co/edwardhotchkiss">Angel List</a></li>
+      <div style="clear:both" />
+    </ul> 
+  </div>
+  <div id="container">
+    <div class="post">      
+  <div class="post-meta">
+    <p>March 28, 2012</p>            
+  </div>  
+  <div class="post-content">
+    <h4><a href="/blog/2012/03/28/learning-angular.js-1.0.0%2C-part-1-of-10-introduction-to-1.0.0">Learning AngularJS 1.0.0, part 1 of 10 - Introduction to 1.0.0</a></h4>
+    <p><strong>Ranked #4 on Google search for AngularJS?</strong></p>
+
+<p>I was going over my <a href="http://mixpanel.com/">MixPanel</a> analytics, and kept seeing a shitload of traffic coming in from <a href="www.google.com/search?q=angular.js">searching google for angular.js</a>. I&rsquo;m ranked #4 with my <a href="http://edwardhotchkiss.com/blog/2012/03/11/jekyll-live-search-with-angular.js/">Jekyll Live Search with AngularJS</a> so I feel obligated to take this from <em>drafts to </em>posts, and finish it.</p>
+
+<p><strong>Part 1:</strong></p>
+
+<p>Part 1 has one purpose. To show you some of the 1.0.0 breaking API changes, and to get you started with a proper directory structure and a trivial app which will let you expand upon (solo, or as we go along to more advanced posts this week) and build a non-trivial Web app.</p>
+
+<p><strong>Getting Real</strong></p>
+
+<p>If you&rsquo;re not using <strong>AngularJS</strong> and you&rsquo;re either crafting from hand with <a href="http://jquery.org">jQuery</a> or using one of the <a href="http://backbonejs.com">fads</a> <a href="http://knockoutjs.com/">that</a> <a href="https://github.com/maccman/spine/">kicked</a> <a href="http://sammyjs.org/">off</a> the Client-side Routing and MVC changeup, it&rsquo;s time to get real, and work even faster.</p>
+
+<blockquote><p>This is the true story&hellip; of seven strangers&hellip; picked to live in a house&hellip;work together and have their lives taped&hellip; to find out what happens&hellip; when people stop being polite&hellip; and start getting real&hellip;</p>
+
+<p>&mdash; The Real World.</p></blockquote>
+
+<p>Before <a href="http://gettingreal.37signals.com/">37 Signals got real</a>, There was &ldquo;The Real World&rdquo;. Yeah, I know; Awesome.</p>
+
+<p><strong>Angular current &ndash; 1.0.0 RC2</strong></p>
+
+<p>I&rsquo;ve spoken with a lot of developers that didn&rsquo;t go with Angular, because they said that the API was too fast in flux and that the docs weren&rsquo;t that great. They moved on, and passed it by. This is unfortunate. <strong>Angular</strong> is currently on 1.0.0 RC2 (<strong>finally</strong>) with the core team telling me to expect about one RC per week until we are at a release. The API changes are <strong>not breaking</strong> anymore and if there ever was a time to seize the day, it&rsquo;s now.</p>
+
+<p><strong>Getting started today the fast way</strong></p>
+
+<p>I&rsquo;ve started working on a project to scaffold <a href="http://nodejs.org">Node.JS</a> backend routes over <a href="http://mongodb.org">MongoDB</a> using <strong>Angular</strong> views/controller/services. I know right, why not scaffold the fastest client-side development framework ever written? Right now, you can use my <a href="http://search.npmjs.org/#/angular">CLI Node.js Module</a> to automatically generate a new Node.js and Angular project, with <strong>HTML5 Routing</strong>, the new <strong>$routeProvider</strong> and <strong>module</strong> structure already setup. So keep an eye on the project &amp; hold up for scaffolding, as the project is pretty new (a few days).</p>
+
+<p>Liquid error: No such file or directory &ndash; posix_spawnp</p>
+
+<p><strong>Getting started the boring way</strong></p>
+
+<p>If you want to manually grab these starting files, head over to <a href="https://github.com/edwardhotchkiss/node-angular/tree/master/lib/node-angular/templates">node-angular</a> and just git clone then keep those files handy.</p>
+
+<p><strong>Features of this trivial app</strong></p>
+
+<p>The application is taking advantage of HTML5 pushState, and while we&rsquo;re hitting /welcome versus /#/welcome, <a href="http://expressjs.com/">Express</a> is actually rendering our index.html view with Angular calling the appropriate partial based on our path (/welcome). The 1.0.0 <strong>$routeProvider</strong> takes care of this. While we&rsquo;re being shown /welcome vs. / this is because I set my default route to /welcome with $routeProvider.otherwise({ redirectTo : &lsquo;/welcome&rsquo; });</p>
+
+<p><strong>Node &ndash; /app/controllers/welcome.js</strong></p>
+
+<p>Liquid error: No such file or directory &ndash; posix_spawnp</p>
+
+<p><strong>Angular &ndash; /public/javascripts/app.js</strong></p>
+
+<p>Liquid error: No such file or directory &ndash; posix_spawnp</p>
+
+<p>If <strong>Angular</strong> doesn&rsquo;t detect HTML5 / pushState capabilities, it will fall back to hashes, which is why I set my hash prefix to an empty string.</p>
+
+<p><strong>Angular 1.0.0 Controllers and $scope</strong></p>
+
+<p>Angular controllers from 0.10.6 to 1.0.0 went from the classic JavaScript context referencing</p>
+
+<p>Liquid error: No such file or directory &ndash; posix_spawnp</p>
+
+<p>to the <strong>Angular Way</strong> of injecting a scope or reference value</p>
+
+<p>Liquid error: No such file or directory &ndash; posix_spawnp</p>
+
+<p>If I need access to a Service, an Angular provider etc, then I inject scope into my controller along with my required providers:</p>
+
+<p>Liquid error: No such file or directory &ndash; posix_spawnp</p>
+
+<p><strong>ng-app and our main view layout</strong></p>
+
+<p>In Angular 1.0.0 ng:autobind was removed and your angular script is referenced in a &ldquo;normal&rdquo; script tag fashion. In our layout we have a top level element with the ng-app attribute referencing our app, aptly titled &ldquo;app&rdquo;. I have an <ng-view></ng-view> where my partials are loaded and controllers applied within that context.</p>
+
+<p>One of the huge API changes is no longer using mustache style model values directly in our HTML elements if we are using a | filter. Instead we&rsquo;re using the attribute ng-bind-template=&ldquo;my-model-var | filter:filter&rdquo; to apply, (see below).</p>
+
+<p><strong>Example</strong></p>
+
+<p>Liquid error: No such file or directory &ndash; posix_spawnp</p>
+
+<p>Here&rsquo;s our main layout:</p>
+
+<p><strong>/public.index.html</strong></p>
+
+<p>Liquid error: No such file or directory &ndash; posix_spawnp</p>
+
+<p>This is our view partial:</p>
+
+<p><strong>/public/partials/welcome.html</strong></p>
+
+<p>Liquid error: No such file or directory &ndash; posix_spawnp</p>
+
+<p><strong>Further Resources:</strong></p>
+
+<ul>
+<li><a href="http://docs-next.angularjs.org/api">AngularJS Docs &ndash; Latest</a></li>
+<li><a href="https://github.com/angular/angular.js/wiki/JsFiddle-Examples">AngularJS Fiddles</a></li>
+<li><a href="http://github.com/angular-ui">New Project Angular-UI</a></li>
+</ul>
+
+
+<p><strong>Check back tomorrow for part 2, &ldquo;Rendering views retrieved from a Service&rdquo;.</strong></p>
+
+<p><strong>UPDATE 3-28-12 Igor Speaks!:</strong></p>
+
+<p>I received some comments from <a href="https://twitter.com/#!/igorminar">Igor Minar</a> and it seems that the declarative XML style ng:whatever is now wholely substituted with ng-whatever. Thanks Igor and also for the note that it&rsquo;s <strong>AngularJS</strong> and <strong><em>not</em></strong> Angular.js. All the .js projects have their own convention, and it gets quite confusing.</p>
+
+  </div> 
+  <div class="post-tags">
+    <p>
+      Tagged: 
+      
+        <span class="strong">AngularJS</span>
+      
+        <span class="strong">Learning</span>
+      
+        <span class="strong">tutorial</span>
+      
+        <span class="strong">rc2</span>
+      
+        <span class="strong">MVC</span>
+      
+    </p>
+  </div>
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'edwardhotchkiss';
+      if (/localhost/.test(document.location.hostname)) {
+        var disqus_developer = 1;
+      };
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </div>
+</div>
+
+<script type="text/javascript">
+  jekyll.mpq.track('Learning AngularJS 1.0.0, part 1 of 10 - Introduction to 1.0.0_Hit');
+</script>
+      
+  </div>
+  <script type="text/javascript">
+    jekyll.mpq.track('Site_Hit');
+  </script>
+</body>
+</html>
