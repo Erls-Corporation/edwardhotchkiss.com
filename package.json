@@ -8,9 +8,9 @@
     "type": "git",
     "url": "git://github.com/edwardhotchkiss/edwardhotchkiss.com.git"
   },
-  "dependencies": {},
-  "devDependencies": {},
-  "optionalDependencies": {},
+  "dependencies": {
+    "express":"2.5.9"
+  },
   "engines": {
     "node": "*"
   }
