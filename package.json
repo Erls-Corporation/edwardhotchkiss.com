@@ -12,6 +12,7 @@
     "express":"2.5.9"
   },
   "engines": {
-    "node": "*"
+    "node": "0.6.x",
+    "npm": "1.0.x"
   }
 }
