@@ -1,15 +1,18 @@
 {
-  "author": "Edward Hotchkiss <edwardhotchkiss@me.com> (http://edwardhotchkiss.com/)",
-  "name": "edwardhotchkiss.com",
-  "description": "my blog",
-  "version": "0.0.0",
-  "homepage": "http://edwardhotchkiss.com",
+  "author":"Edward Hotchkiss <edwardhotchkiss@me.com> (http://edwardhotchkiss.com/)",
+  "name":"edwardhotchkiss.com",
+  "description":"edwardhotchkiss.com, blog",
+  "version":"0.1.0",
+  "homepage":"http://edwardhotchkiss.com",
   "repository": {
-    "type": "git",
-    "url": "git://github.com/edwardhotchkiss/edwardhotchkiss.com.git"
+    "type":"git",
+    "url":"git://github.com/edwardhotchkiss/edwardhotchkiss.com.git"
   },
   "dependencies": {
-    "express":"2.5.9"
+    "express":"2.5.9",
+    "markdown":"0.3.1",
+    "async":"0.1.18",
+    "ejs":"0.7.1"
   },
   "engines": {
     "node": "0.6.x",

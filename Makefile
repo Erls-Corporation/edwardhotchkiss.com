@@ -10,7 +10,4 @@ JS_DIR = assets/js/
 js:
 	uglifyjs -o ${JS_DIR}main.min.js --no-mangle --no-squeeze ${JS_DIR}jekyll.js
 
-run:
-	jekyll --server
-
-.PHONY: css js
+.PHONY: css

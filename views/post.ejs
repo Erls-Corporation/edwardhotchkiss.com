@@ -1,0 +1,28 @@
+<div class="post">      
+  <div class="post-meta">
+    <p><%= page.date %></p>           
+  </div>  
+  <div class="post-content">
+    <h4><a href="<%= page.url %>"><%= page.title %></a></h4>
+    <%- page.body %>
+  </div>
+  <script>
+  <div class="post-tags">
+    <p>
+      Tagged: <%= page.keywords %>
+    </p>
+  </div>
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'edwardhotchkiss';
+      if (/localhost/.test(document.location.hostname)) {
+        var disqus_developer = 1;
+      };
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </div>
+</div>

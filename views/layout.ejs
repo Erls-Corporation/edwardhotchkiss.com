@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title><%= page.title %></title>
+  <meta name="author" content="Edward Hotchkiss" />
+  <meta name="title" content="<%= page.title %>" />
+  <meta name="description" content="<%= page.description %>" />
+  <meta property="og:title" content="<%= page.title %>"/>
+  <meta property="og:image" content="http://edwardhotchkiss.com/images/edward.jpg"/>
+  <meta property="og:site_name" content="Edward Hotchkiss, Developer"/>
+  <meta property="og:description" content="<%= page.description %>" />
+  <meta property="og:url" content="http://edwardhotchkiss.com/"/>
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon"/>
+  <link rel="stylesheet" type="text/css" href="/css/main.min.css"/>
+  <link rel="alternate" type="application/rss+xml" title="Edward Hotchkkss - RSS Feed" href="/feed.xml" />
+  <script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+</head>
+<body>
+  <div id="github">
+    <a href="http://github.com/edwardhotchkiss/edwardhotchkiss.github.com/" title="http://github.com/edwardhotchkiss/edwardhotchkiss.github.com/">
+      <img src="/images/github.png" alt="Github: edwardhotchkiss.com" />
+    </a>
+  </div>
+  <div id="header">
+    <ul>
+      <li class="title"><a href="/">Edward Hotchkiss, Software Engineer</a></li>
+      <li><a target="_blank" title="LinkedIn" href="http://www.linkedin.com/in/edwardhhotchkiss">LinkedIn</a></li>
+      <li><a target="_blank" title="GitHub" href="https://github.com/edwardhotchkiss">GitHub</a></li>
+      <li><a target="_blank" title="Twitter" href="https://twitter.com/#!/stricttype">Twitter</a></li>
+      <li><a target="_blank" title="Facebook" href="https://www.facebook.com/mrhotchkiss">Facebook</a></li>
+      <li><a target="_blank" title="Angel List" href="https://angel.co/edwardhotchkiss">Angel List</a></li>
+      <div style="clear:both" />
+    </ul> 
+  </div>
+  <div id="container">
+    <%- body %>   
+  </div>
+  <script type="text/javascript">
+    var _gauges = _gauges || [];
+    (function() {
+      var t   = document.createElement('script');
+      t.type  = 'text/javascript';
+      t.async = true;
+      t.id    = 'gauges-tracker';
+      t.setAttribute('data-site-id', '4fbcbd82f5a1f569d0000110');
+      t.src = '//secure.gaug.es/track.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    })();
+  </script>
+</body>
+</html>
