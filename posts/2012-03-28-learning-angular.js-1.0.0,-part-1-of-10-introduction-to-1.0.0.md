@@ -31,13 +31,9 @@ I've spoken with a lot of developers that didn't go with Angular, because they s
 
 I've started working on a project to scaffold [Node.JS](http://nodejs.org) backend routes over [MongoDB](http://mongodb.org) using **Angular** views/controller/services. I know right, why not scaffold the fastest client-side development framework ever written? Right now, you can use my [CLI Node.js Module](http://search.npmjs.org/#/angular) to automatically generate a new Node.js and Angular project, with **HTML5 Routing**, the new **$routeProvider** and **module** structure already setup. So keep an eye on the project & hold up for scaffolding, as the project is pretty new (a few days).
 
-```bash
-$ sudo npm install angular -g
-$ angular new myapp && cd myapp
-$ npm install
-$ angular server 8080
-$ open "http://localhost:8080"
-```bash
+**NPM:**
+
+<script src="https://gist.github.com/2785484.js?file=start.sh"></script>
 
 **Getting started the boring way**
 
@@ -49,47 +45,11 @@ The application is taking advantage of HTML5 pushState, and while we're hitting 
 
 **Node - /app/controllers/welcome.js**
 
-```javascript
-
-/**
- * @route /welcome
- */
-
-var path = require('path');
-
-module.exports = function(app) {
-
-  app.get('/welcome', function(request, response) {
-  	var html = path.normalize(__dirname + '/../../public/index.html');
-    response.sendfile(html);
-  });
-
-};
-
-```
+<script src="https://gist.github.com/2785484.js?file=welcome.js"></script>
 
 **Angular - /public/javascripts/app.js**
 
-```javascript
-
-var app = angular.module('app', [], function($routeProvider) {
-
-  $routeProvider.when('/welcome', {
-    template   : 'partials/welcome.html',
-    controller : WelcomeController  
-  });
-  $routeProvider.otherwise({ 
-    redirectTo : '/welcome'
-  });
-
-});
-
-app.config(function($locationProvider) {  
-  $locationProvider.hashPrefix('');
-  $locationProvider.html5Mode(true);
-});
-
-```
+<script src="https://gist.github.com/2785484.js?file=app.js"></script>
 
 If **Angular** doesn't detect HTML5 / pushState capabilities, it will fall back to hashes, which is why I set my hash prefix to an empty string.
 
@@ -97,45 +57,15 @@ If **Angular** doesn't detect HTML5 / pushState capabilities, it will fall back 
 
 Angular controllers from 0.10.6 to 1.0.0 went from the classic JavaScript context referencing
 
-```javascript
-
-function Controller() {
-	var scope = this;
-	var context = this;
-	var self = this;
-}
-
-```
+<script src="https://gist.github.com/2785484.js?file=old_context.js"></script>
 
 to the **Angular Way** of injecting a scope or reference value
 
-```javascript
-
-/**
- * controllers
- */
-
-function WelcomeController($scope) {
-  $scope.pageHeader = 'v0.0.1';
-};
-
-```
+<script src="https://gist.github.com/2785484.js?file=new_context.js"></script>
 
 If I need access to a Service, an Angular provider etc, then I inject scope into my controller along with my required providers:
 
-```javascript
-
-/**
- * controllers
- */
-
-WelcomeController.$inject = ['$scope', '$location'];
-
-function WelcomeController($scope, $location) {
-  $scope.pageHeader = 'v0.0.1';
-};
-
-```
+<script src="https://gist.github.com/2785484.js?file=inject.js"></script>
 
 **ng-app and our main view layout**
 
@@ -145,46 +75,19 @@ One of the huge API changes is no longer using mustache style model values direc
 
 **Example**
 
-```html
-
-<p ng-bind-html="item.content | highlight:filterBy"></p>
-
-```
+<script src="https://gist.github.com/2785484.js?file=bind.html"></script>
 
 Here's our main layout:
 
 **/public.index.html**
 
-{% highlight html %}
+<script src="https://gist.github.com/2785484.js?file=public.index.html"></script>
 
-<!DOCTYPE html>
-<html lang="en" ng-app="app" ng-init="">
-  <head>
-    <meta charset="utf-8">
-    <title ng-bind-template="Node-Angular {{ site.leftCurleys }}pageTitle{{ site.rightCurleys }}">Node-Angular</title>
-  </head>
-  <body>
-    <div>
-      <ng-view></ng-view>
-    </div>
-    <script type="text/javascript" src="javascripts/vendor/angular-1.0.0rc2.min.js" ng:autobind></script>
-    <script type="text/javascript" src="javascripts/app.js"></script>
-  </body>
-</html>
-
-```
-
-This is our view partial:
+**This is our view partial**:
 
 **/public/partials/welcome.html**
 
-```html
-
-<div class="container" ng:init="$root.pageTitle = pageHeader">
-  <h1 ng-bind-html="pageHeader"></h1>
-</div>
-
-```
+<script src="https://gist.github.com/2785484.js?file=welcome2.html"></script>
 
 **Further Resources:**
 

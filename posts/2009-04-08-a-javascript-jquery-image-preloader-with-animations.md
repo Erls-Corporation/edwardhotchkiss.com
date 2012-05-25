@@ -11,22 +11,11 @@ Addicted to sex, I wanted something hotter. Here's what I built...
 
 **End of your HEAD:**
 
-```html
-<script type="text/javascript" src="preloader.js"></script>
-```
+<script src="https://gist.github.com/2785444.js?file=header.html"></script>
 
 **End of your BODY:**
 
-```javascript
-
-$.Preloader({
-  barColor     : '#f57b50',
-  overlayColor : '#8e4d6b',
-  barHeight    : '10px',
-  siteHolder   : '#container' 
-});
-
-```
+<script src="https://gist.github.com/2785454.js?file=preloader_setup.js"></script>
 
 **Live Demo setup by Jaydson Gomes:**
 

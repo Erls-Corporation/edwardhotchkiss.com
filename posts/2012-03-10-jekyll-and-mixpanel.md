@@ -11,25 +11,13 @@ As Google is a dinosaur, and dinosaurs (along with disgusting UI & Design) shoul
 
 **This is how MixPanel generally works:**
 
-  mpq.track('EventName', { some : 'data' });
+<script src="https://gist.github.com/2785472.js?file=normal.js"></script>
 
 Since [Jekyll](http://jekyllrb.com/) _posts are being edited (and sometimes viewed, proofed) locally, an obvious way to use MixPanel would be to wrap it's tracking events with a test for being in production (yourhost.com) or localhost. 
 
 I'd like to eventually add in some more JS into the site so I'll wrap it in an Object called "jekyll" Drop this script within your default layout below the MixPanel API code.
 
-  var jekyll = Object.create({
-    mpq : {
-      track : function(eventName, properties, callback) {
-        properties = properties || {};
-        callback = callback || function(){};
-        if (!/localhost/.test(document.location.hostname)) {
-          mpq.track(eventName, properties, callback);
-        };
-      }
-    }
-  });
-
-  jekyll.mpq.track('EventName', { some : 'data' });
+<script src="https://gist.github.com/2012162.js?file=Jekyll-and-MixPanel.js"></script>
 
 **Wrapping up**
 

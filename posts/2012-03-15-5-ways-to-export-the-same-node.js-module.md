@@ -11,82 +11,26 @@ This module is called **"dude"**, and all it does is one thing (for brevity) via
 
 **Usage.js**
 
-```javascript
-
-var dude = require('./dude');
-
-dude.say('hey bro.');
-
-```
+<script src="https://gist.github.com/2785519.js?file=1.js"></script>
 
 **Method #1:**
 
-```javascript
-
-var dude = module.exports = function(){};
-
-dude.say = function(message) {
-  console.log(message);
-};
-
-```
+<script src="https://gist.github.com/2785519.js?file=2.js"></script>
 
 **Method #2:**
 
-```javascript
-
-var dude = module.exports = {
-  say : function(message) {
-    console.log(message);
-  }
-};
-
-```
+<script src="https://gist.github.com/2785519.js?file=2_.js"></script>
 
 **Method #3:**
 
-```javascript
-
-exports.say = function(message) {
-  console.log(message);
-};
-
-```
+<script src="https://gist.github.com/2785519.js?file=3.js"></script>
 
 **Method #4:**
 
-```javascript
-
-module.exports = Object.create({
-  say : function(message) {
-    console.log(message);
-  }
-});
-
-```
-
-**Usage for #5 (using {params}):**
-
-```javascript
-
-var dude = new require('./dude')(/* params? */);
-
-dude.say('hey bro.');
-
-```
+<script src="https://gist.github.com/2785519.js?file=4.js"></script>
 
 **Method #5:**
 
-```javascript
-
-module.exports = function(params) {
-  return {
-    say : function(message) {
-      console.log(message);
-    }
-  }
-}
-
-```
+<script src="https://gist.github.com/2785519.js?file=5.js"></script>
 
 Use on a case by case basis.

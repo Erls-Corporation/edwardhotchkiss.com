@@ -9,61 +9,22 @@ We (the privileged, hah) all know and love [MongoHQ](http://mongohq.com/) -- wit
 
 But sometimes you need to get a list of user-available collections from a MongoDB instance without MongoHQ. The process starts with exposing the MongoDB-Native Object from within [MongooseJS](http://mongoosejs.com/):
 
-```javascript
+**Accessing MongoDBNative**
 
-var mongoose = require('mongoose')
-  , dbNative = mongoose.connection.db;
-
-console.log(dbNative);
-
-```
+<script src="https://gist.github.com/2785463.js?file=mongodb_list.js"></script>
 
 **Install MongooseJS**
 
-```bash
-$ npm install mongoose
-```
+<script src="https://gist.github.com/2785463.js?file=install.sh"></script>
 
-***Save it:***
+***In Action:***
 
-```javascript
-
-/**
- * Uses MongooseJS to Connect to MongoDB
- * .Maps out all collections within
- */
-
-var mongoose = require('mongoose')
-  , MONGO_DB = 'mongodb://localhost/test';
-
-mongoose.connect(MONGO_DB);
-
-mongoose.connection.on('open', function(){
-  mongoose.connection.db.collectionNames(function(error, names) {
-    if (error) {
-      throw new Error(error);
-    } else {
-      names.map(function(name) {
-        console.log('found collection %s', name);
-      });
-    }
-  });
-});
-
-mongoose.connection.on('error', function(error){
-  throw new Error(error);
-});
-
-/* EOF */
-
-```javascript
+<script src="https://gist.github.com/2785463.js?file=action.js"></script>
 
 **Run it:**
 
-```bash
-$ node script.js
-```
+<script src="https://gist.github.com/2785463.js?file=action.sh"></script>
 
-**Gist:**
+**Fork & Edit:**
 
 [https://gist.github.com/1522555/](https://gist.github.com/1522555)

@@ -21,134 +21,29 @@ First we need to be able to allow double curly brackets in our templates, since 
 
 **_config.yml:**
 
-{% highlight html %}
-
-leftCurleys: "{{ site.leftCurleys }}"
-rightCurleys: "{{ site.rightCurleys }}"
-
-{% endhighlight %}
+<script src="https://gist.github.com/2785568.js?file=config.yml"></script>
 
 **RSS Feed:**
 
 Probably the easiest is to just grab this repo, it's there as "feed.xml"
 
-{% highlight bash %}
-
-$ git@github.com:edwardhotchkiss/edwardhotchkiss.github.com.git
-
-{% endhighlight %}
+<script src="https://gist.github.com/2785568.js?file=clone.sh"></script>
 
 **Link to Angular 0.10.6:**
 
-{% highlight html %}
-
-<script type="text/javascript" src="http://code.angularjs.org/1.0.0rc2/angular-1.0.0rc2.min.js"></script>
-
-{% endhighlight %}
+<script src="https://gist.github.com/2785568.js?file=link_to.html"></script>
 
 **Search & Templating HTML:**
 
-{% highlight html %}
-
-<div id="search-container" class="entrance" ng-app="JekyllApp" ng-controller="JekyllSearchController">
-  <div class="entrance-item">
-    <h2>Error 404, Engineer Gone Rogue!</h2>
-    <p><input id="searchText" type="search" placeholder="Live Search Posts..." ng-model-instant ng-model="searchText" /> 
-    or <a href="mailto:edwardhotchkiss@me.com">Email Me</a></p>
-  </div>
-  <div class="entrance-item">
-    <h2>Blog Posts</h2>
-    <ul>
-      <li ng-repeat="post in posts | filter:searchText">
-        - <span ng-bind-html="post.date | highlight:filterBy"></span> &raquo; 
-        <a href="{{ site.leftCurleys }} post.url {{ site.rightCurleys }}" ng-bind-html="post.title | highlight:searchText"></a>
-      </li>
-    </ul>
-  </div>
-</div>
-
-{% endhighlight %}
+<script src="https://gist.github.com/2785568.js?file=search_html.html"></script>
 
 **CSS:**
 
-{% highlight css %}
-
-#searchText {
-  line-height:22px;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset;
-  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset;
-  border: 1px solid #ccc;
-  color: #999;
-  padding: 6px 15px 6px 15px;
-  -webkit-border-radius:15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
-  margin-right: 15px;
-}
-
-.match {
-  background-color: #f9ffa1;
-  -webkit-animation-name: pop;
-  -webkit-animation-duration: 0.3s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-timing-function: ease-in-out;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;    
-}
-
-{% endhighlight %}
+<script src="https://gist.github.com/2785568.js?file=style.css"></script>
 
 **AngularJS Controller & Parser:**
 
-{% highlight javascript %}
-
-
-/**
- * Setup Module with `highlight` filter
- */
-
-var JekyllApp = angular.module('JekyllApp', [], function($routeProvider) {
-});
-
-JekyllApp.filter('highlight', function() {
-  return function(text, filter) {
-    if (filter === undefined) {
-      return text;
-    } else {
-      return text.replace(new RegExp(filter, 'gi'), '<span class="match">$&</span>');
-    };
-  };
-});
-
-/**
- * Inject $http Object into our Controller
- */
-  
-JekyllSearchController.$inject = ['$scope', '$http'];
-
-function JekyllSearchController($scope, $http) {
-  var posts = $scope.posts = [];
-  $http.get('/feed.xml').success(function(response) {
-    var feed = angular.element(response);
-    var entries = feed.children('entries');
-    angular.forEach(entries, function(entry) {
-      var children = angular.element(entry).children();
-      if (children.length === 5) {
-        posts.push({
-          title : children[0].innerHTML,
-          url   : children[1].href,
-          date  : children[2].innerHTML
-        });
-      };
-    });
-  }).error(function() {
-    console.error('xhr issue retreiving your feed!')
-  });
-};
-
-{% endhighlight %}
+<script src="https://gist.github.com/2785568.js?file=angular_app.js"></script>
 
 **UPDATE 3-28-12 Igor Speaks!:**
 
@@ -158,5 +53,7 @@ I received some comments from [Igor Minar](https://twitter.com/#!/igorminar) and
 
 I got a great email from [Boris Bokowski](https://twitter.com/bokowski) who linked me to a fiddle that ***"I might find interesting"***. Interesting indeed. So I updated the demo here on my site and this article -- to include a highlight filter & a proper Angular 0.10.x Module. Thanks again Boris.
 
-There it is, sexy as hell! As always, any questions just [Email Me](mailto:edwardhotchkiss@me.com).
+**UPDATE 5-24-12
+
+I no longer use either Jekyll or Angular, so the 404 example is no longer up. Regardless, good luck.
 
