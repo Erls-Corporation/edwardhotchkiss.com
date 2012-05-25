@@ -1,6 +1,7 @@
 --
 Title: JavaScript jQuery Image Preloader with Animations
 Description: Since many have tried and many have ... not tried. Introducing A JavaScript jQuery Image Preloader with Animations.
+Date: 04.08.09
 Keywords: JavaScript,jQuery,Preloader
 --
 
@@ -10,16 +11,22 @@ Addicted to sex, I wanted something hotter. Here's what I built...
 
 **End of your HEAD:**
 
-  <script type="text/javascript" src="preloader.js"></script>
+```html
+<script type="text/javascript" src="preloader.js"></script>
+```
 
 **End of your BODY:**
 
-  $.Preloader({
-    barColor     : '#f57b50',
-    overlayColor : '#8e4d6b',
-    barHeight    : '10px',
-    siteHolder   : '#container' 
-  });
+```javascript
+
+$.Preloader({
+  barColor     : '#f57b50',
+  overlayColor : '#8e4d6b',
+  barHeight    : '10px',
+  siteHolder   : '#container' 
+});
+
+```
 
 **Live Demo setup by Jaydson Gomes:**
 

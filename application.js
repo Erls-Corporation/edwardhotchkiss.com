@@ -1,12 +1,13 @@
 
 /**
- * edwardhotchkiss.com
+ * @site edwardhotchkiss.com
+ * @author Edward Hotchkiss <edwardhotchkiss@me.com>
  * (now on heroku)
  **/
 
 var express = require('express')
   , app = express.createServer()
-  , port = process.env.PORT || 8000
+  , port = process.env.PORT || 8000;
 
 /**
  * @class blog dep
@@ -26,9 +27,28 @@ app.configure(function(){
   app.set('view engine', 'ejs');
 });
 
+app.get('/', function(request, response) {
+  var pageTitle = "Edward Hotchkiss, Software Engineer";
+  var pageDescription = '';
+  pageDescription += "My name is Edward Hotchkiss and I'm a Software";
+  pageDescription += " Engineer and Entrepreneur based in NYC. My work with";
+  pageDescription += " startups focuses on Node.js, and other emerging technologies";
+  var pageList = blog.compileList();
+  var page = {
+    title       : pageTitle,
+    list        : pageList,
+    description : pageDescription
+  };
+  response.render('index', {
+    locals : {
+      page : page
+    }
+  });
+});
+
 /**
- * blog
- * ex: /blog/2009/04/08/a-javascript-jquery-image-preloader-with-animations/
+ * @content Blog Posts
+ * @example Paterrn: /blog/2009/04/08/a-javascript-jquery-image-preloader-with-animations/
  **/
 
 app.get('/blog/:year/:month/:day/:title/', function(request, response) {
@@ -36,15 +56,10 @@ app.get('/blog/:year/:month/:day/:title/', function(request, response) {
   var month = request.params['month'] || '';
   var year = request.params['year'] || '';
   var day = request.params['day'] || '';
-  blog.compilePost(title, month, year, day, function(error, blogPost) {
-    if (error) {
-      response.send(error, 500);
-    } else {
-      response.render('post', {
-        locals : {
-          page : blogPost
-        }
-      });
+  var blogPost = blog.compilePost(title, month, year, day);
+  response.render('post', {
+    locals : {
+      page : blogPost
     }
   });
 });

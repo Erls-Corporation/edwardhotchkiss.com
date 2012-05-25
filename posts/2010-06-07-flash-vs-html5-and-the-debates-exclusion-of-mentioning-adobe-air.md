@@ -1,7 +1,8 @@
 --
 Title: Flash vs. HTML5. The debates exclusion of mentioning Adobe AIR
 Description: The debate rages on over whether or not the Apple iPad is a 'Flash Killer'
-Keywords: Flash, HTML5, Adobe, Apple
+Date: 06.07.10
+Keywords: Flash,HTML5,Adobe,Apple
 --
 
 The debate rages on over whether or not the Apple iPad is a "Flash Killer". One point which most people neglect to mention is that Adobe AIR powers TweetDeck, an application **CREATED** in Adobe Flash, which allows for cross-platform compatibility.

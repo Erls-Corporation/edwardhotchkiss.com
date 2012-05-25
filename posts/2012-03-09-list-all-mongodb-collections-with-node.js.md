@@ -1,38 +1,32 @@
----
-layout: post
-title: List all MongoDB Collections with Node.JS
-description: List all MongoDB Collections with Node.JS
-tags:
- - MongoDB
- - Node.JS
- - Mongoose
- - Collections
----
+--
+Title: List all MongoDB Collections with Node.JS
+Description: List all MongoDB Collections with Node.JS
+Date: 03.09.12
+Keywords: MongoDB,Node.JS,Mongoose,Collections
+--
 
 We (the privileged, hah) all know and love [MongoHQ](http://mongohq.com/) -- with it's slick interface, it's nice web-based app and it's alliance with [Heroku](http://heroku.com/).
 
 But sometimes you need to get a list of user-available collections from a MongoDB instance without MongoHQ. The process starts with exposing the MongoDB-Native Object from within [MongooseJS](http://mongoosejs.com/):
 
-{% highlight javascript %}
+```javascript
 
 var mongoose = require('mongoose')
   , dbNative = mongoose.connection.db;
 
 console.log(dbNative);
 
-{% endhighlight %}
+```
 
 **Install MongooseJS**
 
-{% highlight bash %}
-
+```bash
 $ npm install mongoose
-
-{% endhighlight %}
+```
 
 ***Save it:***
 
-{% highlight javascript %}
+```javascript
 
 /**
  * Uses MongooseJS to Connect to MongoDB
@@ -62,15 +56,13 @@ mongoose.connection.on('error', function(error){
 
 /* EOF */
 
-{% endhighlight %}
+```javascript
 
 **Run it:**
 
-{% highlight bash %}
-
+```bash
 $ node script.js
-
-{% endhighlight %}
+```
 
 **Gist:**
 

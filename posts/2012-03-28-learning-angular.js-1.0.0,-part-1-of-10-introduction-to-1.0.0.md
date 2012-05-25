@@ -1,14 +1,9 @@
----
-layout: post
-title: Learning AngularJS 1.0.0, part 1 of 10 - Introduction to 1.0.0
-description: Learning AngularJS 1.0.0, part 1 of 10 - Introduction to 1.0.0
-tags:
- - AngularJS
- - Learning
- - tutorial
- - rc2
- - MVC
----
+--
+Title: Learning AngularJS 1.0.0, part 1 of 10 - Introduction to 1.0.0
+Description: Learning AngularJS 1.0.0, part 1 of 10 - Introduction to 1.0.0
+Date: 03.28.12
+Keywords: AngularJS,Learning,Tutorial,RC2,MVC
+--
 
 **Ranked #4 on Google search for AngularJS?**
 
@@ -36,15 +31,13 @@ I've spoken with a lot of developers that didn't go with Angular, because they s
 
 I've started working on a project to scaffold [Node.JS](http://nodejs.org) backend routes over [MongoDB](http://mongodb.org) using **Angular** views/controller/services. I know right, why not scaffold the fastest client-side development framework ever written? Right now, you can use my [CLI Node.js Module](http://search.npmjs.org/#/angular) to automatically generate a new Node.js and Angular project, with **HTML5 Routing**, the new **$routeProvider** and **module** structure already setup. So keep an eye on the project & hold up for scaffolding, as the project is pretty new (a few days).
 
-{% highlight bash %}
-
+```bash
 $ sudo npm install angular -g
 $ angular new myapp && cd myapp
 $ npm install
 $ angular server 8080
 $ open "http://localhost:8080"
-
-{% endhighlight %}
+```bash
 
 **Getting started the boring way**
 
@@ -56,7 +49,7 @@ The application is taking advantage of HTML5 pushState, and while we're hitting 
 
 **Node - /app/controllers/welcome.js**
 
-{% highlight javascript %}
+```javascript
 
 /**
  * @route /welcome
@@ -73,11 +66,11 @@ module.exports = function(app) {
 
 };
 
-{% endhighlight %}
+```
 
 **Angular - /public/javascripts/app.js**
 
-{% highlight javascript %}
+```javascript
 
 var app = angular.module('app', [], function($routeProvider) {
 
@@ -96,7 +89,7 @@ app.config(function($locationProvider) {
   $locationProvider.html5Mode(true);
 });
 
-{% endhighlight %}
+```
 
 If **Angular** doesn't detect HTML5 / pushState capabilities, it will fall back to hashes, which is why I set my hash prefix to an empty string.
 
@@ -104,7 +97,7 @@ If **Angular** doesn't detect HTML5 / pushState capabilities, it will fall back 
 
 Angular controllers from 0.10.6 to 1.0.0 went from the classic JavaScript context referencing
 
-{% highlight javascript %}
+```javascript
 
 function Controller() {
 	var scope = this;
@@ -112,11 +105,11 @@ function Controller() {
 	var self = this;
 }
 
-{% endhighlight %}
+```
 
 to the **Angular Way** of injecting a scope or reference value
 
-{% highlight javascript %}
+```javascript
 
 /**
  * controllers
@@ -126,11 +119,11 @@ function WelcomeController($scope) {
   $scope.pageHeader = 'v0.0.1';
 };
 
-{% endhighlight %}
+```
 
 If I need access to a Service, an Angular provider etc, then I inject scope into my controller along with my required providers:
 
-{% highlight javascript %}
+```javascript
 
 /**
  * controllers
@@ -142,7 +135,7 @@ function WelcomeController($scope, $location) {
   $scope.pageHeader = 'v0.0.1';
 };
 
-{% endhighlight %}
+```
 
 **ng-app and our main view layout**
 
@@ -152,11 +145,11 @@ One of the huge API changes is no longer using mustache style model values direc
 
 **Example**
 
-{% highlight html %}
+```html
 
 <p ng-bind-html="item.content | highlight:filterBy"></p>
 
-{% endhighlight %}
+```
 
 Here's our main layout:
 
@@ -179,19 +172,19 @@ Here's our main layout:
   </body>
 </html>
 
-{% endhighlight %}
+```
 
 This is our view partial:
 
 **/public/partials/welcome.html**
 
-{% highlight html %}
+```html
 
 <div class="container" ng:init="$root.pageTitle = pageHeader">
   <h1 ng-bind-html="pageHeader"></h1>
 </div>
 
-{% endhighlight %}
+```
 
 **Further Resources:**
 

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "express":"2.5.9",
-    "markdown":"0.3.1",
+    "github-flavored-markdown":"1.0.1",
     "async":"0.1.18",
     "ejs":"0.7.1"
   },

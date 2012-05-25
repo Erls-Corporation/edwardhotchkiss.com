@@ -1,13 +1,9 @@
----
-layout: post
-title: No one likes an unkempt public area - Open Source guidelines to Cleanliness
-description: No one likes an unkempt public area - Open Source guidelines to Cleanliness
-tags:
- - Cleanliness
- - Open Source
- - Contributions
- - GitHub
----
+--
+Title: No one likes an unkempt public area - Open Source guidelines to Cleanliness
+Description: No one likes an unkempt public area - Open Source guidelines to Cleanliness
+Date: 03.19.12
+Keywords: Cleanliness,Open Source,Contributions,GitHub
+--
 
 Open Source has one general pre-requisite: that it be freely redestributed and community driven. When [GitHub](http://github.com/) was introduced; the ecosystem saw a logical and pragmatic way to bring together disparate developers to easily fork a repository, make changes and submit a pull request. Suddenly everyone and everything was embracing open-source; from corporations sponsoring projects to use as their lifeblood, to individuals creating basic concepts for self-use and using GitHub as a free storage ground.
 

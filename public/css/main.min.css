@@ -43,7 +43,7 @@ blockquote{font-style:italic;}
 #searchText{line-height:22px;-webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.25) inset;-moz-box-shadow:0 1px 3px rgba(0, 0, 0, 0.25) inset;box-shadow:0 1px 3px rgba(0, 0, 0, 0.25) inset;border:1px solid #ccc;color:#999;padding:6px 15px 6px 15px;-webkit-border-radius:15px;-moz-border-radius:15px;border-radius:15px;margin-right:15px;}
 .match{background-color:#f9ffa1;-webkit-animation-name:pop;-webkit-animation-duration:0.3s;-webkit-animation-iteration-count:1;-webkit-animation-timing-function:ease-in-out;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
 .highlight{background-color:#efefef;padding:7px 7px 7px 10px;border:1px solid #ddd;-moz-box-shadow:3px 3px rgba(0, 0, 0, 0.1);-webkit-box-shadow:3px 3px rgba(0, 0, 0, 0.1);box-shadow:3px 3px rgba(0, 0, 0, 0.1);margin:20px 0 20px 0;overflow:auto;}
-code{font-family:'Bitstream Vera Sans Mono','Courier',monospace !important;}
+code,pre{font-family:'Bitstream Vera Sans Mono','Courier',monospace !important;}
 .highlight .c{color:#586e75;}
 .highlight .err{color:#93a1a1;}
 .highlight .g{color:#93a1a1;}

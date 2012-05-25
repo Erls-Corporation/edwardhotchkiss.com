@@ -1,13 +1,9 @@
----
-layout: post
-title: Jekyll Live Search with AngularJS
-description: Ever wanted a search page on Jekyll/Github Pages? This is a Live Search with AngularJS for Jekyll
-tags:
- - Jekyll
- - AngularJS
- - Live
- - Search
----
+--
+Title: Jekyll Live Search with AngularJS
+Description: Ever wanted a search page on Jekyll/Github Pages? This is a Live Search with AngularJS for Jekyll
+Date: 03.11.12
+Keywords: Jekyll,Angular.js,Live,Search
+--
 
 **Background:**
 
