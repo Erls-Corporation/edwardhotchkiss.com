@@ -1,4 +1,4 @@
 
 # edwardhotchkiss.com
 
-> running jekyll on [heroku](http://heroku.com/)
+> running [Node.JS](http://nodejs.org/) on [heroku](http://heroku.com/)
